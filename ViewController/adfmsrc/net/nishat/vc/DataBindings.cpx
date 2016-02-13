@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="net.nishat.vc" ClientType="Generic">
+  <pageMap>
+    <page path="/emp_apraise_form.jspx"
+          usageId="net_nishat_vc_emp_apraise_formPageDef"/>
+    <page path="/untitled1.jspx" usageId="net_nishat_vc_untitled1PageDef"/>
+    <page path="/untitled2.jspx" usageId="net_nishat_vc_untitled2PageDef"/>
+    <page path="/emp_apraise_foem.jspx"
+          usageId="net_nishat_vc_emp_apraise_foemPageDef"/>
+    <page path="/sub_ord_apraise_form.jspx"
+          usageId="net_nishat_vc_sub_ord_apraise_formPageDef"/>
+    <page path="/application_menu.jspx"
+          usageId="net_nishat_vc_application_menuPageDef"/>
+    <page path="/view_forms.jspx" usageId="net_nishat_vc_view_formsPageDef"/>
+    <page path="/peer_form.jspx" usageId="net_nishat_vc_peer_formPageDef"/>
+    <page path="/sub_ord_apraise_form_v2.jspx"
+          usageId="net_nishat_vc_sub_ord_apraise_form_v2PageDef"/>
+    <page path="/view_forms_v2.jspx"
+          usageId="net_nishat_vc_view_forms_v2PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="net_nishat_vc_emp_apraise_formPageDef"
+          path="net.nishat.vc.pageDefs.emp_apraise_formPageDef"/>
+    <page id="net_nishat_vc_untitled1PageDef"
+          path="net.nishat.vc.pageDefs.untitled1PageDef"/>
+    <page id="net_nishat_vc_untitled2PageDef"
+          path="net.nishat.vc.pageDefs.untitled2PageDef"/>
+    <page id="net_nishat_vc_emp_apraise_foemPageDef"
+          path="net.nishat.vc.pageDefs.emp_apraise_foemPageDef"/>
+    <page id="net_nishat_vc_sub_ord_apraise_formPageDef"
+          path="net.nishat.vc.pageDefs.sub_ord_apraise_formPageDef"/>
+    <page id="net_nishat_vc_application_menuPageDef"
+          path="net.nishat.vc.pageDefs.application_menuPageDef"/>
+    <page id="net_nishat_vc_view_formsPageDef"
+          path="net.nishat.vc.pageDefs.view_formsPageDef"/>
+    <page id="net_nishat_vc_peer_formPageDef"
+          path="net.nishat.vc.pageDefs.peer_formPageDef"/>
+    <page id="net_nishat_vc_sub_ord_apraise_form_v2PageDef"
+          path="net.nishat.vc.pageDefs.sub_ord_apraise_form_v2PageDef"/>
+    <page id="net_nishat_vc_view_forms_v2PageDef"
+          path="net.nishat.vc.pageDefs.view_forms_v2PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="net.nishat.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

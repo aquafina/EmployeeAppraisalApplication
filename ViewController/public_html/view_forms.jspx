@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+          <af:goLink text="Login" id="gl2"
+                     inlineStyle="color:black; font-size:medium;"
+                     visible="#{sessionScope.user_id == null}"
+                     destination="login.jspx"/>
+          <af:outputText value="Line Manager's Appraisal Review" id="ot2"
+                         inlineStyle="font-weight:bold; font-size:medium; font-family:'Times New Roman', 'Arial Black', times, Serif;"/>
+          <af:panelGroupLayout id="pgl7" halign="right" layout="vertical"
+                               rendered="#{sessionScope.user_id != null}"
+                               inlineStyle="padding-right:15px;">
+            <af:outputText value="User: #{sessionScope.user_name}" id="ot1"
+                           inlineStyle="font-weight:bold;"/>
+            <af:commandLink text="Logout" id="cl1" action="#{Navigation.logout}"
+                            inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl2" layout="horizontal"
+                               visible="#{sessionScope.user_id != null}"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px">
+            <af:commandLink text="Save" id="cl6"
+                            inlineStyle="color:black; font-weight:bold;"
+                            actionListener="#{bindings.Commit.execute}"/>
+            <af:spacer width="1" height="10" id="sss5"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:goLink text="Home" id="gl1" destination="application_menu.jspx"
+                       inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="panelGroupLayout1" layout="horizontal"
+                               visible="#{sessionScope.user_id != null}"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px">
+            <af:commandLink text="First" id="cl2"
+                            actionListener="#{bindings.First.execute}"
+                            inlineStyle="color:black;"
+                            disabled="#{!bindings.First.enabled}"/>
+            <af:spacer width="1" height="10" id="spacer1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Last" id="cl3"
+                            actionListener="#{bindings.Last.execute}"
+                            inlineStyle="color:black;"
+                            disabled="#{!bindings.Last.enabled}"/>
+            <af:spacer width="1" height="10" id="spacer15"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Next" id="cl4"
+                            actionListener="#{bindings.Next.execute}"
+                            inlineStyle="color:black;"
+                            disabled="#{!bindings.Next.enabled}"/>
+            <af:spacer width="1" height="10" id="spacer1f"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Previous" id="cl5" inlineStyle="color:black;"
+                            disabled="#{!bindings.Previous.enabled}"
+                            actionListener="#{bindings.Previous.execute}"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl4" layout="horizontal"
+                               visible="#{sessionScope.user_id != null}">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.VOViewFormsCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.VOViewFormsCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.VOViewFormsCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.VOViewFormsCriteriaQuery.processQueryOperation}"
+                      displayMode="simple"/>
+            <af:commandButton actionListener="#{bindings.Execute.execute}"
+                              text="Search"
+                              disabled="#{!bindings.Execute.enabled}" id="cb2"/>
+          </af:panelGroupLayout>
+          <af:panelBox text="General Information" id="pb1"
+                       visible="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl5" layout="horizontal">
+              <af:panelFormLayout id="pfl2" maxColumns="4" rows="2">
+                <f:facet name="footer"/>
+                <af:inputText value="#{bindings.LineManagerName.inputValue}"
+                              label="Line Manager"
+                              required="#{bindings.LineManagerName.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.LineManagerName.hints.precision}"
+                              shortDesc="#{bindings.LineManagerName.hints.tooltip}"
+                              id="it5" disabled="true">
+                  <f:validator binding="#{bindings.LineManagerName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LineManagerId.inputValue}"
+                              label="#{bindings.LineManagerId.hints.label}"
+                              required="#{bindings.LineManagerId.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.LineManagerId.hints.precision}"
+                              shortDesc="#{bindings.LineManagerId.hints.tooltip}"
+                              id="it29" disabled="true" rendered="false">
+                  <f:validator binding="#{bindings.LineManagerId.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.LastPromotionDate.inputValue}"
+                              label="Last promotion date"
+                              required="#{bindings.LastPromotionDate.hints.mandatory}"
+                              shortDesc="#{bindings.LastPromotionDate.hints.tooltip}"
+                              id="id1" columns="25" disabled="true">
+                  <f:validator binding="#{bindings.LastPromotionDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.LastPromotionDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.FormId.inputValue}"
+                              label="#{bindings.FormId.hints.label}"
+                              required="#{bindings.FormId.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.FormId.hints.precision}"
+                              shortDesc="#{bindings.FormId.hints.tooltip}"
+                              id="it13" disabled="true" rendered="false">
+                  <f:validator binding="#{bindings.FormId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.FormId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmployeeNo.inputValue}"
+                              label="Employee#"
+                              required="#{bindings.EmployeeNo.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.EmployeeNo.hints.precision}"
+                              shortDesc="#{bindings.EmployeeNo.hints.tooltip}"
+                              id="it20" disabled="true">
+                  <f:validator binding="#{bindings.EmployeeNo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmployeeName.inputValue}"
+                              label="Employee name"
+                              required="#{bindings.EmployeeName.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.EmployeeName.hints.precision}"
+                              shortDesc="#{bindings.EmployeeName.hints.tooltip}"
+                              id="it34" disabled="true">
+                  <f:validator binding="#{bindings.EmployeeName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmployeeDepartment.inputValue}"
+                              label="Employee Department"
+                              required="#{bindings.EmployeeDepartment.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.EmployeeDepartment.hints.precision}"
+                              shortDesc="#{bindings.EmployeeDepartment.hints.tooltip}"
+                              id="it3" disabled="true">
+                  <f:validator binding="#{bindings.EmployeeDepartment.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpQualification.inputValue}"
+                              label="Employee Qualification"
+                              required="#{bindings.EmpQualification.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.EmpQualification.hints.precision}"
+                              shortDesc="#{bindings.EmpQualification.hints.tooltip}"
+                              id="it10" disabled="true">
+                  <f:validator binding="#{bindings.EmpQualification.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.EmpDoj.inputValue}"
+                              label="Date of joining"
+                              required="#{bindings.EmpDoj.hints.mandatory}"
+                              shortDesc="#{bindings.EmpDoj.hints.tooltip}"
+                              id="id2" columns="25" disabled="true">
+                  <f:validator binding="#{bindings.EmpDoj.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.EmpDoj.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.EmpDesignation.inputValue}"
+                              label="Designation"
+                              required="#{bindings.EmpDesignation.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.EmpDesignation.hints.precision}"
+                              shortDesc="#{bindings.EmpDesignation.hints.tooltip}"
+                              id="it6" disabled="true" rows="2">
+                  <f:validator binding="#{bindings.EmpDesignation.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Employee Evaluation"
+                       visible="#{sessionScope.user_id != null}" id="pb2">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl7sss" layout="horizontal">
+              <af:panelFormLayout id="pfl3" maxColumns="5" rows="4">
+                <f:facet name="footer"/>
+                <af:inputText value="#{bindings.AbilityToLearn.inputValue}"
+                              label="Ability to learn"
+                              required="#{bindings.AbilityToLearn.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.AbilityToLearn.hints.precision}"
+                              shortDesc="#{bindings.AbilityToLearn.hints.tooltip}"
+                              id="it25" disabled="true">
+                  <f:validator binding="#{bindings.AbilityToLearn.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.AbilityToLearn.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.AcceptingChange.inputValue}"
+                              label="Accepting Change"
+                              required="#{bindings.AcceptingChange.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.AcceptingChange.hints.precision}"
+                              shortDesc="#{bindings.AcceptingChange.hints.tooltip}"
+                              id="it36" disabled="true">
+                  <f:validator binding="#{bindings.AcceptingChange.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.AcceptingChange.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.AttitudeTowardsAuthority.inputValue}"
+                              label="Attitude towards authority"
+                              required="#{bindings.AttitudeTowardsAuthority.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.AttitudeTowardsAuthority.hints.precision}"
+                              shortDesc="#{bindings.AttitudeTowardsAuthority.hints.tooltip}"
+                              id="it8" disabled="true">
+                  <f:validator binding="#{bindings.AttitudeTowardsAuthority.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.AttitudeTowardsAuthority.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CommercialJudgment.inputValue}"
+                              label="Commercial judgment"
+                              required="#{bindings.CommercialJudgment.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.CommercialJudgment.hints.precision}"
+                              shortDesc="#{bindings.CommercialJudgment.hints.tooltip}"
+                              id="it16" disabled="true">
+                  <f:validator binding="#{bindings.CommercialJudgment.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CommercialJudgment.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CommitmentToWork.inputValue}"
+                              label="Commitment to work"
+                              required="#{bindings.CommitmentToWork.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.CommitmentToWork.hints.precision}"
+                              shortDesc="#{bindings.CommitmentToWork.hints.tooltip}"
+                              id="it35" disabled="true">
+                  <f:validator binding="#{bindings.CommitmentToWork.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CommitmentToWork.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CommunicationSkills.inputValue}"
+                              label="Communication skills"
+                              required="#{bindings.CommunicationSkills.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.CommunicationSkills.hints.precision}"
+                              shortDesc="#{bindings.CommunicationSkills.hints.tooltip}"
+                              id="it31" disabled="true">
+                  <f:validator binding="#{bindings.CommunicationSkills.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CommunicationSkills.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Creativity.inputValue}"
+                              label="#{bindings.Creativity.hints.label}"
+                              required="#{bindings.Creativity.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.Creativity.hints.precision}"
+                              shortDesc="#{bindings.Creativity.hints.tooltip}"
+                              id="it4" disabled="true">
+                  <f:validator binding="#{bindings.Creativity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Creativity.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DecisionMaking.inputValue}"
+                              label="Decision making"
+                              required="#{bindings.DecisionMaking.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.DecisionMaking.hints.precision}"
+                              shortDesc="#{bindings.DecisionMaking.hints.tooltip}"
+                              id="it17" disabled="true">
+                  <f:validator binding="#{bindings.DecisionMaking.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DecisionMaking.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DelegationSkills.inputValue}"
+                              label="Delegation skills"
+                              required="#{bindings.DelegationSkills.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.DelegationSkills.hints.precision}"
+                              shortDesc="#{bindings.DelegationSkills.hints.tooltip}"
+                              id="it24" disabled="true">
+                  <f:validator binding="#{bindings.DelegationSkills.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DelegationSkills.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DevelopingOthers.inputValue}"
+                              label="Developing others"
+                              required="#{bindings.DevelopingOthers.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.DevelopingOthers.hints.precision}"
+                              shortDesc="#{bindings.DevelopingOthers.hints.tooltip}"
+                              id="it22" disabled="true">
+                  <f:validator binding="#{bindings.DevelopingOthers.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DevelopingOthers.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Integrity.inputValue}"
+                              label="#{bindings.Integrity.hints.label}"
+                              required="#{bindings.Integrity.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.Integrity.hints.precision}"
+                              shortDesc="#{bindings.Integrity.hints.tooltip}"
+                              id="it28" disabled="true">
+                  <f:validator binding="#{bindings.Integrity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Integrity.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Leadership.inputValue}"
+                              label="#{bindings.Leadership.hints.label}"
+                              required="#{bindings.Leadership.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.Leadership.hints.precision}"
+                              shortDesc="#{bindings.Leadership.hints.tooltip}"
+                              id="it26" disabled="true">
+                  <f:validator binding="#{bindings.Leadership.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Leadership.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Loyalty.inputValue}"
+                              label="Loyalty"
+                              required="#{bindings.Loyalty.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.Loyalty.hints.precision}"
+                              shortDesc="#{bindings.Loyalty.hints.tooltip}"
+                              id="it27" disabled="true">
+                  <f:validator binding="#{bindings.Loyalty.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Loyalty.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.MeetingDeadlines.inputValue}"
+                              label="Meeting deadlines"
+                              required="#{bindings.MeetingDeadlines.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.MeetingDeadlines.hints.precision}"
+                              shortDesc="#{bindings.MeetingDeadlines.hints.tooltip}"
+                              id="it32" disabled="true">
+                  <f:validator binding="#{bindings.MeetingDeadlines.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.MeetingDeadlines.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Posted.inputValue}"
+                              label="#{bindings.Posted.hints.label}"
+                              required="#{bindings.Posted.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.Posted.hints.precision}"
+                              shortDesc="#{bindings.Posted.hints.tooltip}"
+                              id="it12" disabled="true" rendered="false">
+                  <f:validator binding="#{bindings.Posted.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProblemSolving.inputValue}"
+                              label="Problem solving"
+                              required="#{bindings.ProblemSolving.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.ProblemSolving.hints.precision}"
+                              shortDesc="#{bindings.ProblemSolving.hints.tooltip}"
+                              id="it23" disabled="true">
+                  <f:validator binding="#{bindings.ProblemSolving.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ProblemSolving.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProductTechnicalKnowledge.inputValue}"
+                              label="Product technical knowledge"
+                              required="#{bindings.ProductTechnicalKnowledge.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.ProductTechnicalKnowledge.hints.precision}"
+                              shortDesc="#{bindings.ProductTechnicalKnowledge.hints.tooltip}"
+                              id="it18" disabled="true">
+                  <f:validator binding="#{bindings.ProductTechnicalKnowledge.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ProductTechnicalKnowledge.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.StabilityUnderPressure.inputValue}"
+                              label="Stability under pressure"
+                              required="#{bindings.StabilityUnderPressure.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.StabilityUnderPressure.hints.precision}"
+                              shortDesc="#{bindings.StabilityUnderPressure.hints.tooltip}"
+                              id="it33" disabled="true">
+                  <f:validator binding="#{bindings.StabilityUnderPressure.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.StabilityUnderPressure.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TakingInitiative.inputValue}"
+                              label="Taking initiative"
+                              required="#{bindings.TakingInitiative.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.TakingInitiative.hints.precision}"
+                              shortDesc="#{bindings.TakingInitiative.hints.tooltip}"
+                              id="it2" disabled="true">
+                  <f:validator binding="#{bindings.TakingInitiative.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.TakingInitiative.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TeamWork.inputValue}"
+                              label="Team work"
+                              required="#{bindings.TeamWork.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.TeamWork.hints.precision}"
+                              shortDesc="#{bindings.TeamWork.hints.tooltip}"
+                              id="it30" disabled="true">
+                  <f:validator binding="#{bindings.TeamWork.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.TeamWork.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TimeManagement.inputValue}"
+                              label="Time management"
+                              required="#{bindings.TimeManagement.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.TimeManagement.hints.precision}"
+                              shortDesc="#{bindings.TimeManagement.hints.tooltip}"
+                              id="it7" disabled="true">
+                  <f:validator binding="#{bindings.TimeManagement.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.TimeManagement.format}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="With Peers" id="pb3"
+                       visible="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl6" layout="horizontal">
+              <af:panelFormLayout id="pfl4" maxColumns="3" rows="2">
+                <f:facet name="footer"/>
+                <af:inputText value="#{bindings.PCooperates.inputValue}"
+                              label="Cooperates"
+                              required="#{bindings.PCooperates.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.PCooperates.hints.precision}"
+                              shortDesc="#{bindings.PCooperates.hints.tooltip}"
+                              id="it21" disabled="true">
+                  <f:validator binding="#{bindings.PCooperates.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PEasyToWork.inputValue}"
+                              label="Easy to work"
+                              required="#{bindings.PEasyToWork.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.PEasyToWork.hints.precision}"
+                              shortDesc="#{bindings.PEasyToWork.hints.tooltip}"
+                              id="it1" disabled="true">
+                  <f:validator binding="#{bindings.PEasyToWork.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PRepectfulPoliteInConvo.inputValue}"
+                              label="Respectful and polite in convo"
+                              required="#{bindings.PRepectfulPoliteInConvo.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.PRepectfulPoliteInConvo.hints.precision}"
+                              shortDesc="#{bindings.PRepectfulPoliteInConvo.hints.tooltip}"
+                              id="it19" disabled="true">
+                  <f:validator binding="#{bindings.PRepectfulPoliteInConvo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PResponsible.inputValue}"
+                              label="Responsible"
+                              required="#{bindings.PResponsible.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.PResponsible.hints.precision}"
+                              shortDesc="#{bindings.PResponsible.hints.tooltip}"
+                              id="it9" disabled="true">
+                  <f:validator binding="#{bindings.PResponsible.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PSharesInfo.inputValue}"
+                              label="Shares"
+                              required="#{bindings.PSharesInfo.hints.mandatory}"
+                              columns="5"
+                              maximumLength="#{bindings.PSharesInfo.hints.precision}"
+                              shortDesc="#{bindings.PSharesInfo.hints.tooltip}"
+                              id="it15" disabled="true">
+                  <f:validator binding="#{bindings.PSharesInfo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PGeneralCommentsPeers.inputValue}"
+                              label="General comments about peers"
+                              required="#{bindings.PGeneralCommentsPeers.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.PGeneralCommentsPeers.hints.precision}"
+                              shortDesc="#{bindings.PGeneralCommentsPeers.hints.tooltip}"
+                              id="it14" disabled="true" rows="4">
+                  <f:validator binding="#{bindings.PGeneralCommentsPeers.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelFormLayout id="pfl1" maxColumns="1" rows="1"
+                              visible="#{sessionScope.user_id != null}">
+            <af:inputText value="#{bindings.HodRemarks.inputValue}"
+                          label="Hod remarks"
+                          required="#{bindings.HodRemarks.hints.mandatory}"
+                          columns="50"
+                          maximumLength="#{bindings.HodRemarks.hints.precision}"
+                          shortDesc="#{bindings.HodRemarks.hints.tooltip}"
+                          id="it11" rows="5"
+                          disabled="#{bindings.HodRemarks.inputValue != null}">
+              <f:validator binding="#{bindings.HodRemarks.validator}"/>
+            </af:inputText>
+            <f:facet name="footer"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

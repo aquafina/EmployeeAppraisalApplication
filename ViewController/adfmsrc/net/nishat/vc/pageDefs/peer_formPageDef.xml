@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="peer_formPageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XxPeerApForm2" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_XxPeerApForm2Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="VO_XxPeerApFormCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VO_XxPeerApForm2Iterator"
+                  id="VOXxPeerApFormCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="VO_XxPeerApForm2Iterator"
+                  Uses="LOV_PName" id="PName"/>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="EvaluatedBy">
+      <AttrNames>
+        <Item Value="EvaluatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="EvaluatorDpt">
+      <AttrNames>
+        <Item Value="EvaluatorDpt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator"
+                     id="EvaluatorEmployeeNo">
+      <AttrNames>
+        <Item Value="EvaluatorEmployeeNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PCooperates">
+      <AttrNames>
+        <Item Value="PCooperates"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PDpt">
+      <AttrNames>
+        <Item Value="PDpt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PEasyToWork">
+      <AttrNames>
+        <Item Value="PEasyToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PEmployeeNo">
+      <AttrNames>
+        <Item Value="PEmployeeNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PId">
+      <AttrNames>
+        <Item Value="PId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator"
+                     id="PRepectfulPoliteInConvo">
+      <AttrNames>
+        <Item Value="PRepectfulPoliteInConvo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PResponsible">
+      <AttrNames>
+        <Item Value="PResponsible"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PSharesInfo">
+      <AttrNames>
+        <Item Value="PSharesInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PeerFormId">
+      <AttrNames>
+        <Item Value="PeerFormId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PeerComments">
+      <AttrNames>
+        <Item Value="PeerComments"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XxPeerApForm2Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XxPeerApForm2Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_XxPeerApForm2Iterator" id="Execute"
+            InstanceName="AppModuleDataControl.VO_XxPeerApForm2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="VO_XxPeerApForm2Iterator" id="Create"
+            InstanceName="AppModuleDataControl.VO_XxPeerApForm2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+            Action="createRow"/>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refreshPeerFormData"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshPeerFormData"
+                  IsViewObjectMethod="false"/>
+    <action IterBinding="VO_XxPeerApForm2Iterator" id="Execute1"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

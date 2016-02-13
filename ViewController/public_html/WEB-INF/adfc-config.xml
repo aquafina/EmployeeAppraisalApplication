@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__2">
+    <managed-bean-name id="__4">AuthHandler</managed-bean-name>
+    <managed-bean-class id="__1">AuthHandler</managed-bean-class>
+    <managed-bean-scope id="__3">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name id="__8">ViewPhase</managed-bean-name>
+    <managed-bean-class id="__6">ViewPhase</managed-bean-class>
+    <managed-bean-scope id="__7">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name id="__10">Navigation</managed-bean-name>
+    <managed-bean-class id="__11">Navigation</managed-bean-class>
+    <managed-bean-scope id="__12">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name id="__14">EmpAprsieFormListener</managed-bean-name>
+    <managed-bean-class id="__13">EmpAprsieFormListener</managed-bean-class>
+    <managed-bean-scope id="__16">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name id="__18">SubOrdFormListener</managed-bean-name>
+    <managed-bean-class id="__19">SubOrdFormListener</managed-bean-class>
+    <managed-bean-scope id="__17">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__22">
+    <managed-bean-name id="__24">PeerFormListener</managed-bean-name>
+    <managed-bean-class id="__23">PeerFormListener</managed-bean-class>
+    <managed-bean-scope id="__21">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

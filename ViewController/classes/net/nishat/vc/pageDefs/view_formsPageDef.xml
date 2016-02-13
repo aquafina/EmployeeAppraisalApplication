@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="view_formsPageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_ViewForms1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_ViewForms1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="VO_ViewFormsCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VO_ViewForms1Iterator" id="VOViewFormsCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="AbilityToLearn">
+      <AttrNames>
+        <Item Value="AbilityToLearn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="AcceptingChange">
+      <AttrNames>
+        <Item Value="AcceptingChange"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="AttitudeTowardsAuthority">
+      <AttrNames>
+        <Item Value="AttitudeTowardsAuthority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="CommercialJudgment">
+      <AttrNames>
+        <Item Value="CommercialJudgment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="CommitmentToWork">
+      <AttrNames>
+        <Item Value="CommitmentToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="CommunicationSkills">
+      <AttrNames>
+        <Item Value="CommunicationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="Creativity">
+      <AttrNames>
+        <Item Value="Creativity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="DecisionMaking">
+      <AttrNames>
+        <Item Value="DecisionMaking"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="DelegationSkills">
+      <AttrNames>
+        <Item Value="DelegationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="DevelopingOthers">
+      <AttrNames>
+        <Item Value="DevelopingOthers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="EmpDesignation">
+      <AttrNames>
+        <Item Value="EmpDesignation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="EmpDoj">
+      <AttrNames>
+        <Item Value="EmpDoj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="EmpQualification">
+      <AttrNames>
+        <Item Value="EmpQualification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="EmployeeDepartment">
+      <AttrNames>
+        <Item Value="EmployeeDepartment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="EmployeeName">
+      <AttrNames>
+        <Item Value="EmployeeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="EmployeeNo">
+      <AttrNames>
+        <Item Value="EmployeeNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="FormId">
+      <AttrNames>
+        <Item Value="FormId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="Integrity">
+      <AttrNames>
+        <Item Value="Integrity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="LastPromotionDate">
+      <AttrNames>
+        <Item Value="LastPromotionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="Leadership">
+      <AttrNames>
+        <Item Value="Leadership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="LineManagerId">
+      <AttrNames>
+        <Item Value="LineManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="LineManagerName">
+      <AttrNames>
+        <Item Value="LineManagerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="Loyalty">
+      <AttrNames>
+        <Item Value="Loyalty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="MeetingDeadlines">
+      <AttrNames>
+        <Item Value="MeetingDeadlines"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="PCooperates">
+      <AttrNames>
+        <Item Value="PCooperates"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="PEasyToWork">
+      <AttrNames>
+        <Item Value="PEasyToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="PGeneralCommentsPeers">
+      <AttrNames>
+        <Item Value="PGeneralCommentsPeers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="PRepectfulPoliteInConvo">
+      <AttrNames>
+        <Item Value="PRepectfulPoliteInConvo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="PResponsible">
+      <AttrNames>
+        <Item Value="PResponsible"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="PSharesInfo">
+      <AttrNames>
+        <Item Value="PSharesInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="ProblemSolving">
+      <AttrNames>
+        <Item Value="ProblemSolving"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="ProductTechnicalKnowledge">
+      <AttrNames>
+        <Item Value="ProductTechnicalKnowledge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator"
+                     id="StabilityUnderPressure">
+      <AttrNames>
+        <Item Value="StabilityUnderPressure"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="TakingInitiative">
+      <AttrNames>
+        <Item Value="TakingInitiative"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="TeamWork">
+      <AttrNames>
+        <Item Value="TeamWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="TimeManagement">
+      <AttrNames>
+        <Item Value="TimeManagement"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_ViewForms1Iterator" id="HodRemarks">
+      <AttrNames>
+        <Item Value="HodRemarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_ViewForms1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="VO_ViewForms1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_ViewForms1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="VO_ViewForms1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action IterBinding="VO_ViewForms1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

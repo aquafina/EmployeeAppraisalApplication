@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+        <af:goLink text="Login" id="gl2"
+                     inlineStyle="font-size:medium; color:black;"
+                     rendered="#{sessionScope.user_id == null}"
+                     destination="login.jspx"/>
+          <af:outputText value="Peers Review" id="ot2"
+                         inlineStyle="font-weight:bold; font-size:medium; font-family:'Times New Roman', 'Arial Black', times, Serif;"/>
+          <af:panelGroupLayout id="pgl7" halign="right" layout="vertical"
+                               rendered="#{sessionScope.user_id != null}"
+                               inlineStyle="padding-right:15px;">
+            <af:outputText value="User: #{sessionScope.user_name}" id="ot1"
+                           inlineStyle="font-weight:bold;"/>
+            <af:commandLink text="Logout" id="cl1" action="#{Navigation.logout}"
+                            inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl4" layout="horizontal"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.VOXxPeerApFormCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.VOXxPeerApFormCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.VOXxPeerApFormCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.VOXxPeerApFormCriteriaQuery.processQueryOperation}"
+                      displayMode="simple"/>
+            <af:commandButton actionListener="#{bindings.Execute1.execute}"
+                              text="Search"
+                              disabled="#{!bindings.Execute1.enabled}"
+                              id="cb1"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl5" layout="horizontal"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:commandLink text="Save" id="cl4"
+                            actionListener="#{bindings.Commit.execute}"
+                            inlineStyle="color:black; font-weight:bold;"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}"/>
+            <af:spacer width="1" height="10" id="spacerD1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:popup id="p1">
+              <af:dialog id="d2" type="yesNo"
+                         dialogListener="#{PeerFormListener.submitListener}">
+                <af:activeOutputText value="Do you want to submit the review?"
+                                     id="aot1"/>
+              </af:dialog>
+            </af:popup>
+            <af:commandLink text="Submit" id="aacl4"
+                            actionListener="#{bindings.Commit.execute}"
+                            inlineStyle="color:black; font-weight:bold;"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}"
+                            rendered="true">
+              <af:showPopupBehavior popupId="p1" triggerType="action"
+                                    align="afterEnd"/>
+            </af:commandLink>
+            <af:spacer width="1" height="10" id="spacerC1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:goLink text="Home" id="gl1" destination="application_menu.jspx"
+                       inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl2" layout="horizontal"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:commandLink text="New Review" id="cl5"
+                            inlineStyle="color:black; font-weight:bold;"
+                            actionListener="#{bindings.Create.execute}"/>
+            <af:spacer width="1" height="10" id="spacer2"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Previous" id="cl2"
+                            actionListener="#{bindings.Previous.execute}"
+                            disabled="#{!bindings.Previous.enabled}"
+                            inlineStyle="color:BLACK; font-weight:BOLD;"/>
+            <af:spacer width="1" height="10" id="spacer1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Next" id="cl3"
+                            actionListener="#{bindings.Next.execute}"
+                            disabled="#{!bindings.Next.enabled}"
+                            inlineStyle="color:BLACK; font-weight:BOLD;"/>
+            <af:spacer width="1" height="10" id="spacerE1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+          </af:panelGroupLayout>
+          <af:panelBox text="Peer general information" id="pb1"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
+              <af:inputText value="#{bindings.Posted.inputValue}"
+                            label="#{bindings.Posted.hints.label}"
+                            required="#{bindings.Posted.hints.mandatory}"
+                            columns="#{bindings.Posted.hints.displayWidth}"
+                            maximumLength="#{bindings.Posted.hints.precision}"
+                            shortDesc="#{bindings.Posted.hints.tooltip}"
+                            id="it1" rendered="false">
+                <f:validator binding="#{bindings.Posted.validator}"/>
+              </af:inputText>
+              <af:inputListOfValues id="pNameId"
+                                    popupTitle="Search and Select: #{bindings.PName.hints.label}"
+                                    value="#{bindings.PName.inputValue}"
+                                    label="Peer name"
+                                    model="#{bindings.PName.listOfValuesModel}"
+                                    required="#{bindings.PName.hints.mandatory}"
+                                    columns="#{bindings.PName.hints.displayWidth}"
+                                    shortDesc="#{bindings.PName.hints.tooltip}"
+                                    disabled="#{bindings.PName.inputValue != null}"
+                                    autoSubmit="true">
+                                    
+                <f:validator binding="#{bindings.PName.validator}"/>
+              </af:inputListOfValues>
+              <af:inputText value="#{bindings.EvaluatedBy.inputValue}"
+                            label="#{bindings.EvaluatedBy.hints.label}"
+                            required="#{bindings.EvaluatedBy.hints.mandatory}"
+                            columns="#{bindings.EvaluatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.EvaluatedBy.hints.precision}"
+                            shortDesc="#{bindings.EvaluatedBy.hints.tooltip}"
+                            id="it10" visible="false" rendered="false">
+                <f:validator binding="#{bindings.EvaluatedBy.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.EvaluatorDpt.inputValue}"
+                            label="#{bindings.EvaluatorDpt.hints.label}"
+                            required="#{bindings.EvaluatorDpt.hints.mandatory}"
+                            columns="#{bindings.EvaluatorDpt.hints.displayWidth}"
+                            maximumLength="#{bindings.EvaluatorDpt.hints.precision}"
+                            shortDesc="#{bindings.EvaluatorDpt.hints.tooltip}"
+                            id="it9" visible="false" rendered="false">
+                <f:validator binding="#{bindings.EvaluatorDpt.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.EvaluatorEmployeeNo.inputValue}"
+                            label="#{bindings.EvaluatorEmployeeNo.hints.label}"
+                            required="#{bindings.EvaluatorEmployeeNo.hints.mandatory}"
+                            columns="#{bindings.EvaluatorEmployeeNo.hints.displayWidth}"
+                            maximumLength="#{bindings.EvaluatorEmployeeNo.hints.precision}"
+                            shortDesc="#{bindings.EvaluatorEmployeeNo.hints.tooltip}"
+                            id="it12" visible="false" rendered="false">
+                <f:validator binding="#{bindings.EvaluatorEmployeeNo.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PDpt.inputValue}"
+                            label="Peer department"
+                            required="#{bindings.PDpt.hints.mandatory}"
+                            columns="#{bindings.PDpt.hints.displayWidth}"
+                            maximumLength="#{bindings.PDpt.hints.precision}"
+                            shortDesc="#{bindings.PDpt.hints.tooltip}"
+                            partialTriggers="pNameId" id="it6" disabled="true"
+                            autoSubmit="true">
+                <f:validator binding="#{bindings.PDpt.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PEmployeeNo.inputValue}"
+                            label="Peer employee#"
+                            required="#{bindings.PEmployeeNo.hints.mandatory}"
+                            columns="#{bindings.PEmployeeNo.hints.displayWidth}"
+                            maximumLength="#{bindings.PEmployeeNo.hints.precision}"
+                            shortDesc="#{bindings.PEmployeeNo.hints.tooltip}"
+                            partialTriggers="pNameId" id="it4" disabled="true"
+                            autoSubmit="true">
+                <f:validator binding="#{bindings.PEmployeeNo.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PId.inputValue}"
+                            label="#{bindings.PId.hints.label}"
+                            required="#{bindings.PId.hints.mandatory}"
+                            columns="#{bindings.PId.hints.displayWidth}"
+                            maximumLength="#{bindings.PId.hints.precision}"
+                            shortDesc="#{bindings.PId.hints.tooltip}"
+                            partialTriggers="pNameId" id="it7" visible="false"
+                            rendered="false">
+                <f:validator binding="#{bindings.PId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PeerFormId.inputValue}"
+                            label="#{bindings.PeerFormId.hints.label}"
+                            required="#{bindings.PeerFormId.hints.mandatory}"
+                            columns="#{bindings.PeerFormId.hints.displayWidth}"
+                            maximumLength="#{bindings.PeerFormId.hints.precision}"
+                            shortDesc="#{bindings.PeerFormId.hints.tooltip}"
+                            id="it3" visible="false" rendered="false"
+                            binding="#{PeerFormListener.formID}">
+                <f:validator binding="#{bindings.PeerFormId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PeerFormId.format}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:panelBox text="Peer evaluation" id="pb2"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl2" maxColumns="2" rows="2">
+              <f:facet name="footer"/>
+              <af:selectOneChoice label="Shares information" id="soc1"
+                                  value="#{bindings.PSharesInfo.inputValue}"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                  autoSubmit="true">
+                <af:selectItem label="1 - Poor" value="1"
+                               id="si4"/>
+                <af:selectItem label="2 - Needs Improvment" value="2" id="si3"/>
+                <af:selectItem label="3 - Meets Expectation" value="3" id="si2"/>
+                <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5"/>
+                <af:selectItem label="5 - Exceptional" value="5"
+                               id="si1"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Takes Responsibility when things go wrong" id="soc1q"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                  value="#{bindings.PResponsible.inputValue}"
+                                  autoSubmit="true">
+                <af:selectItem label="1 - Poor" value="1"
+                               id="si4q"/>
+                <af:selectItem label="2 - Needs Improvment" value="2" id="si3q"/>
+                <af:selectItem label="3 - Meets Expectation" value="3" id="si2q"/>
+                <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5q"/>
+                <af:selectItem label="5 - Exceptional" value="5"
+                               id="si1q"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Respectful and polite in conversation"
+                                  id="soc1w"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                  value="#{bindings.PRepectfulPoliteInConvo.inputValue}"
+                                  autoSubmit="true">
+                <af:selectItem label="1 - Poor" value="1"
+                               id="si4w"/>
+                <af:selectItem label="2 - Needs Improvment" value="2" id="si3w"/>
+                <af:selectItem label="3 - Meets Expectation" value="3" id="si2w"/>
+                <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5w"/>
+                <af:selectItem label="5 - Exceptional" value="5"
+                               id="si1w"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Easy to work with" id="soc1e"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                  value="#{bindings.PEasyToWork.inputValue}"
+                                  autoSubmit="true">
+                <af:selectItem label="1 - Poor" value="1"
+                               id="si4e"/>
+                <af:selectItem label="2 - Needs Improvment" value="2" id="sie3"/>
+                <af:selectItem label="3 - Meets Expectation" value="3" id="si2e"/>
+                <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5e"/>
+                <af:selectItem label="5 - Exceptional" value="5"
+                               id="si1e"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Cooperates" id="soc1r"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                  value="#{bindings.PCooperates.inputValue}"
+                                  autoSubmit="true">
+                <af:selectItem label="1 - Poor" value="1"
+                               id="si4r"/>
+                <af:selectItem label="2 - Needs Improvment" value="2" id="si3r"/>
+                <af:selectItem label="3 - Meets Expectation" value="3" id="si2r"/>
+                <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5r"/>
+                <af:selectItem label="5 - Exceptional" value="5"
+                               id="si1r"/>
+              </af:selectOneChoice>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:panelBox text="Comments" id="pb3"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:inputText value="#{bindings.PeerComments.inputValue}"
+                          disabled="#{bindings.Posted.inputValue == 'YES'}"
+                          label="General comments about peer"
+                          required="#{bindings.PeerComments.hints.mandatory}"
+                          columns="100"
+                          maximumLength="#{bindings.PeerComments.hints.precision}"
+                          shortDesc="#{bindings.PeerComments.hints.tooltip}"
+                          id="it11" rows="6" autoSubmit="true">
+              <f:validator binding="#{bindings.PeerComments.validator}"/>
+            </af:inputText>
+          </af:panelBox>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

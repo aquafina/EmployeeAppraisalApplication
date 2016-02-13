@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="sub_ord_apraise_form_v2PageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XXSubOrdFormV2_1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_XXSubOrdFormV2_1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="VO_XXSubOrdFormV2Criteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VO_XXSubOrdFormV2_1Iterator"
+                  id="VOXXSubOrdFormV2CriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="LineManagerName">
+      <AttrNames>
+        <Item Value="LineManagerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="EmpQualification">
+      <AttrNames>
+        <Item Value="EmpQualification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator" id="EmployeeNo">
+      <AttrNames>
+        <Item Value="EmployeeNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="EmployeeDepartment">
+      <AttrNames>
+        <Item Value="EmployeeDepartment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator" id="EmpDoj">
+      <AttrNames>
+        <Item Value="EmpDoj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="EmpDesignation">
+      <AttrNames>
+        <Item Value="EmpDesignation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="LastPromotionDate">
+      <AttrNames>
+        <Item Value="LastPromotionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute1" id="Attribute1" DTSupportsMRU="true"/>
+    <action IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute2" id="Attribute2" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute3" id="Attribute3" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute4" id="Attribute4" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute5" id="Attribute5" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute6" id="Attribute6" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute7" id="Attribute7" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute8" id="Attribute8" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute9" id="Attribute9" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute10" id="Attribute10" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute11" id="Attribute11" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute12" id="Attribute12" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute13" id="Attribute13" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute14" id="Attribute14" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute15" id="Attribute15" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute16" id="Attribute16" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute17" id="Attribute17" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute18" id="Attribute18" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute19" id="Attribute19" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute20" id="Attribute20" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute21" id="Attribute21" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute22" id="Attribute22" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute23" id="Attribute23" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute24" id="Attribute24" DTSupportsMRU="true"/>
+    <list IterBinding="VO_XXSubOrdFormV2_1Iterator" StaticList="false"
+          Uses="LOV_Attribute25" id="Attribute25" DTSupportsMRU="true"/>
+    <action IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <listOfValues StaticList="false" IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                  Uses="LOV_EmployeeName" id="EmployeeName"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator" id="FormId">
+      <AttrNames>
+        <Item Value="FormId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refreshEmpFormData"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshEmpFormData"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="refreshSubordFormData"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshSubordFormData"
+                  IsViewObjectMethod="false"/>
+    <action IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

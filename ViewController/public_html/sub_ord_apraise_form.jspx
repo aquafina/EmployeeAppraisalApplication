@@ -1,0 +1,553 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:goLink text="Login" id="gl2"
+                     inlineStyle="color:black; font-size:medium;"
+                     rendered="#{sessionScope.user_id == null}"
+                     destination="login.jspx"/>
+          <af:outputText value="Subordinate appraisal review" id="ot2"
+                         inlineStyle="font-weight:bold; font-size:medium; font-family:'Times New Roman', 'Arial Black', times, Serif;"/>
+          <af:panelGroupLayout id="pgl7" halign="right" layout="vertical"
+                               rendered="#{sessionScope.user_id != null}"
+                               inlineStyle="padding-right:15px;">
+            <af:outputText value="User: #{sessionScope.user_name}" id="ot1"
+                           inlineStyle="font-weight:bold;"/>
+            <af:commandLink text="Logout" id="cl1" action="#{Navigation.logout}"
+                            inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl6" layout="horizontal">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.VOXXSubOrdFormCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.VOXXSubOrdFormCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.VOXXSubOrdFormCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.VOXXSubOrdFormCriteriaQuery.processQueryOperation}"
+                      displayMode="simple"
+                      rendered="#{sessionScope.user_id != null}"/>
+            <af:commandButton actionListener="#{bindings.Execute.execute}"
+                              text="Search"
+                              disabled="#{!bindings.Execute.enabled}" id="cb1"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl5" layout="horizontal"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:commandLink text="Save" id="cl4"
+                            actionListener="#{bindings.Commit.execute}"
+                            inlineStyle="color:black; font-weight:bold;"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}"/>
+            <af:spacer width="1" height="10" id="spacerD1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Submit" id="aacl4"
+                            actionListener="#{bindings.Commit.execute}"
+                            inlineStyle="color:black; font-weight:bold;"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}">
+              <af:showPopupBehavior popupId="p1" triggerType="action"
+                                    align="afterEnd"/>
+            </af:commandLink>
+            <af:spacer width="1" height="10" id="spacerC1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:goLink text="Home" id="gl1" destination="application_menu.jspx"
+                       inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:popup id="p1">
+            <af:dialog id="d2" type="yesNo"
+                       dialogListener="#{SubOrdFormListener.submitSubOrdForm}">
+              <af:activeOutputText value="Do you want to submit the form ?" id="aot1"/>
+            </af:dialog>
+          </af:popup>
+          <af:panelGroupLayout id="pgl2" layout="horizontal"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:commandLink text="New Review" id="cl5"
+                            inlineStyle="color:black; font-weight:bold;"
+                            actionListener="#{bindings.Create.execute}"/>
+            <af:spacer width="1" height="10" id="spacer2"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Previous" id="cl2"
+                            actionListener="#{bindings.Previous.execute}"
+                            disabled="#{!bindings.Previous.enabled}"
+                            inlineStyle="color:BLACK; font-weight:BOLD;"/>
+            <af:spacer width="1" height="10" id="spacer1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink text="Next" id="cl3"
+                            actionListener="#{bindings.Next.execute}"
+                            disabled="#{!bindings.Next.enabled}"
+                            inlineStyle="color:BLACK; font-weight:BOLD;"/>
+            <af:spacer width="1" height="10" id="spacerE1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:selectBooleanCheckbox value="#{bindings.posted_boolean.inputValue}"
+                                      required="#{bindings.posted_boolean.hints.mandatory}"
+                                      shortDesc="#{bindings.posted_boolean.hints.tooltip}"
+                                      id="it34" label="Submit"
+                                      inlineStyle="font-weight:bold;"
+                                      disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                      text="(You can't update the form once submitted)"
+                                      visible="false">
+              <f:validator binding="#{bindings.posted_boolean.validator}"/>
+            </af:selectBooleanCheckbox>
+          </af:panelGroupLayout>
+          <af:panelBox text="Employee General Information" id="pb1"
+                       background="light"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl3aa" layout="horizontal">
+              <af:panelFormLayout id="pfl2" maxColumns="2" rows="4">
+                <f:facet name="footer"/>
+                <af:inputListOfValues id="soc1"
+                                      popupTitle="Search and Select: #{bindings.EmployeeName1.hints.label}"
+                                      value="#{bindings.EmployeeName1.inputValue}"
+                                      label="Employee name:"
+                                      model="#{bindings.EmployeeName1.listOfValuesModel}"
+                                      required="#{bindings.EmployeeName1.hints.mandatory}"
+                                      columns="30"
+                                      disabled="#{bindings.EmployeeName1.inputValue != null}"
+                                      shortDesc="#{bindings.EmployeeName1.hints.tooltip}"
+                                      autoSubmit="true">
+                  <f:validator binding="#{bindings.EmployeeName1.validator}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.FormId.inputValue}"
+                              label="#{bindings.FormId.hints.label}"
+                              required="#{bindings.FormId.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.FormId.hints.precision}"
+                              shortDesc="#{bindings.FormId.hints.tooltip}"
+                              id="it2" rendered="false"
+                              binding="#{SubOrdFormListener.formID}">
+                  <f:validator binding="#{bindings.FormId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.FormId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LineManagerId.inputValue}"
+                              label="#{bindings.LineManagerId.hints.label}"
+                              required="#{bindings.LineManagerId.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.LineManagerId.hints.precision}"
+                              shortDesc="#{bindings.LineManagerId.hints.tooltip}"
+                              id="it33" rendered="false">
+                  <f:validator binding="#{bindings.LineManagerId.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmployeeDepartment.inputValue}"
+                              label="Department:"
+                              required="#{bindings.EmployeeDepartment.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.EmployeeDepartment.hints.precision}"
+                              shortDesc="#{bindings.EmployeeDepartment.hints.tooltip}"
+                              id="it17" partialTriggers="soc1"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.EmployeeDepartment.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Posted.inputValue}"
+                              label="#{bindings.Posted.hints.label}"
+                              required="#{bindings.Posted.hints.mandatory}"
+                              columns="#{bindings.Posted.hints.displayWidth}"
+                              maximumLength="#{bindings.Posted.hints.precision}"
+                              shortDesc="#{bindings.Posted.hints.tooltip}"
+                              id="it1" rendered="false">
+                  <f:validator binding="#{bindings.Posted.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LineManagerName.inputValue}"
+                              label="Line manager:"
+                              required="#{bindings.LineManagerName.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.LineManagerName.hints.precision}"
+                              shortDesc="#{bindings.LineManagerName.hints.tooltip}"
+                              id="it30"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.LineManagerName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmployeeNo.inputValue}"
+                              label="Employee#:"
+                              required="#{bindings.EmployeeNo.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.EmployeeNo.hints.precision}"
+                              shortDesc="#{bindings.EmployeeNo.hints.tooltip}"
+                              id="it29" partialTriggers="soc1"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.EmployeeNo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpQualification.inputValue}"
+                              label="Qualification:"
+                              required="#{bindings.EmpQualification.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.EmpQualification.hints.precision}"
+                              shortDesc="#{bindings.EmpQualification.hints.tooltip}"
+                              id="it16"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.EmpQualification.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpDesignation.inputValue}"
+                              label="Designation:"
+                              required="#{bindings.EmpDesignation.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.EmpDesignation.hints.precision}"
+                              shortDesc="#{bindings.EmpDesignation.hints.tooltip}"
+                              id="it7" partialTriggers="soc1"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.EmpDesignation.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.EmpDoj.inputValue}"
+                              label="Date-of-joinin:"
+                              required="#{bindings.EmpDoj.hints.mandatory}"
+                              shortDesc="#{bindings.EmpDoj.hints.tooltip}"
+                              id="id1" columns="30"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.EmpDoj.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.EmpDoj.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.LastPromotionDate.inputValue}"
+                              label="Last-promotion-date"
+                              required="#{bindings.LastPromotionDate.hints.mandatory}"
+                              shortDesc="#{bindings.LastPromotionDate.hints.tooltip}"
+                              id="id2" columns="30"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.LastPromotionDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.LastPromotionDate.format}"/>
+                </af:inputDate>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Employee Evaluation" id="pb2" background="light"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl4" layout="horizontal">
+              <af:panelFormLayout id="pfl3" maxColumns="4" rows="5">
+                <f:facet name="footer"/>
+                <af:selectOneChoice label="Commercial Judgment:" id="socg1"
+                                    value="#{bindings.CommercialJudgment.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si3"/>
+                  <af:selectItem label="4 - Good" value="4" id="si1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Product/Technical Knowledge"
+                                    id="soc2"
+                                    value="#{bindings.ProductTechnicalKnowledge.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="sihh323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si224"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si225"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si223"/>
+                  <af:selectItem label="4 - Good" value="4" id="si221"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si222"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u166"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Time Management:" id="soc2d"
+                                    value="#{bindings.TimeManagement.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="sih3h23"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si24"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si25"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si23"/>
+                  <af:selectItem label="4 - Good" value="4" id="si21"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si22"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u266"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Communication Skills:" id="soc3"
+                                    value="#{bindings.CommunicationSkills.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si3sdf23"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si34"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si35"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si33"/>
+                  <af:selectItem label="4 - Good" value="4" id="si31"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si32"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u366"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Delegation Skills:" id="soc4"
+                                    value="#{bindings.DelegationSkills.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si3cv23"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si44"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si45"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si43"/>
+                  <af:selectItem label="4 - Good" value="4" id="si41"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si42"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u466"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Meeting Deadlines:" id="soc5"
+                                    value="#{bindings.MeetingDeadlines.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si32cvb3"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si54"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si55"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si53"/>
+                  <af:selectItem label="4 - Good" value="4" id="si51"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si52"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Commitment to work:" id="soc6"
+                                    value="#{bindings.CommitmentToWork.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="six323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si64"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si65"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si63"/>
+                  <af:selectItem label="4 - Good" value="4" id="si61"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si62"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="us66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Creativity:" id="soc7"
+                                    value="#{bindings.Creativity.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si3bvn23"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si74"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si75"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si73"/>
+                  <af:selectItem label="4 - Good" value="4" id="si71"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si72"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="ug66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Problem solving:" id="soc8"
+                                    value="#{bindings.ProblemSolving.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si2334323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si84"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si85"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si83"/>
+                  <af:selectItem label="4 - Good" value="4" id="si81"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si82"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u666"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Taking initiative:" id="soc9"
+                                    value="#{bindings.TakingInitiative.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si3323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si94"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si95"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si93"/>
+                  <af:selectItem label="4 - Good" value="4" id="si91"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si92"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="ugn66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Decision making:" id="soc10"
+                                    value="#{bindings.DecisionMaking.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si45323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si104"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si50"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si30"/>
+                  <af:selectItem label="4 - Good" value="4" id="si10"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si20"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6b6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Team work:" id="soc16"
+                                    value="#{bindings.TeamWork.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si2323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="si664"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si665"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si663"/>
+                  <af:selectItem label="4 - Good" value="4" id="si661"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si662"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="um66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Developing others:" id="soc51"
+                                    value="#{bindings.DevelopingOthers.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si32323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="s4i54"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si455"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="sid53"/>
+                  <af:selectItem label="4 - Good" value="4" id="sid51"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="sid52"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6i6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Leadership:" id="soc13"
+                                    value="#{bindings.Leadership.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="sig323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="sisd34"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="sdi35"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si3d3"/>
+                  <af:selectItem label="4 - Good" value="4" id="si3d1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="si3d2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="uy66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Integrity:" id="soc231"
+                                    value="#{bindings.Integrity.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="siew323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="sid74"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="si7d5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="sid73"/>
+                  <af:selectItem label="4 - Good" value="4" id="sid71"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="sid72"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="uyy66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Stability under pressure:" id="so6c1"
+                                    value="#{bindings.StabilityUnderPressure.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="sisdew323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="s7i4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="s7i5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="s7i3"/>
+                  <af:selectItem label="4 - Good" value="4" id="s7i1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="s7i2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6si6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Attitude towards authority:"
+                                    id="sozc1"
+                                    value="#{bindings.AttitudeTowardsAuthority.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="siwe323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="szi4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="siz5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="si3z"/>
+                  <af:selectItem label="4 - Good" value="4" id="si1z"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="siz2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6p6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Loyalty:" id="socx1"
+                                    value="#{bindings.Loyalty.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="xxx"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="six4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="six5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="six3"/>
+                  <af:selectItem label="4 - Good" value="4" id="six1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="six2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="uo66"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Ability to learn:" id="socb1"
+                                    value="#{bindings.AbilityToLearn.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="sixx323"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="sbi4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="sib5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="sib3"/>
+                  <af:selectItem label="4 - Good" value="4" id="sib1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="sib2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6iii6"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Accepting change:" id="socbs1"
+                                    value="#{bindings.AcceptingChange.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="0 - Poor" value="0" id="si32x3"/>
+                  <af:selectItem label="1 - Must improve" value="1" id="sbis4"/>
+                  <af:selectItem label="2 - Satisfactory" value="2" id="sgis5"/>
+                  <af:selectItem label="3 - Not working to the potential" value="3" id="sgi3"/>
+                  <af:selectItem label="4 - Good" value="4" id="sgi1"/>
+                  <af:selectItem label="5 - Excellent" value="5" id="sig2"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="uu66"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="With Peers" id="panelBox1" background="light"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="panelGroupLayout1" layout="horizontal"
+                                 halign="left">
+              <af:panelFormLayout id="panelFormLayout1" maxColumns="3" rows="2">
+                <f:facet name="footer"/>
+                <af:selectOneChoice label="Respectful and polite in conversation"
+                                    id="u61"
+                                    value="#{bindings.PRepectfulPoliteInConvo.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="1 - Strongly Disagree" value="1" id="u621"/>
+                  <af:selectItem label="2 - Disagree" value="2" id="u631"/>
+                  <af:selectItem label="3 - Agree" value="3" id="u641"/>
+                  <af:selectItem label="4 - Strongly agree" value="4" id="u651"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d61"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Easy to work with" id="u6e21"
+                                    value="#{bindings.PEasyToWork.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="1 - Strongly Disagree" value="1" id="u621v"/>
+                  <af:selectItem label="2 - Disagree" value="2" id="u631v"/>
+                  <af:selectItem label="3 - Agree" value="3" id="u641v"/>
+                  <af:selectItem label="4 - Strongly agree" value="4" id="u651v"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d61v"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Takes responsibility when things go wrong"
+                                    id="u6a32"
+                                    value="#{bindings.PResponsible.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                  <af:selectItem label="1 - Strongly Disagree" value="1" id="u621c"/>
+                  <af:selectItem label="2 - Disagree" value="2" id="u631c"/>
+                  <af:selectItem label="3 - Agree" value="3" id="u641c"/>
+                  <af:selectItem label="4 - Strongly agree" value="4" id="u651c"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d61c"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Cooperates/ is helpful" id="u6d43"
+                                    value="#{bindings.PCooperates.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                 <af:selectItem label="1 - Strongly Disagree" value="1" id="u621x"/>
+                  <af:selectItem label="2 - Disagree" value="2" id="u631x"/>
+                  <af:selectItem label="3 - Agree" value="3" id="u641x"/>
+                  <af:selectItem label="4 - Strongly agree" value="4" id="u651x"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d61x"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice label="Shares information readily"
+                                    id="u6d54"
+                                    value="#{bindings.PSharesInfo.inputValue}"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}"
+                                    autoSubmit="true">
+                 <af:selectItem label="1 - Strongly Disagree" value="1" id="u621z"/>
+                  <af:selectItem label="2 - Disagree" value="2" id="u631z"/>
+                  <af:selectItem label="3 - Agree" value="3" id="u641z"/>
+                  <af:selectItem label="4 - Strongly agree" value="4" id="u651z"/>
+                  <af:selectItem label="N/A - Not available" value="N/A" id="u6d61z"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.PGeneralCommentsPeers.inputValue}"
+                              label="Comments"
+                              required="#{bindings.PGeneralCommentsPeers.hints.mandatory}"
+                              columns="30"
+                              maximumLength="#{bindings.PGeneralCommentsPeers.hints.precision}"
+                              shortDesc="#{bindings.PGeneralCommentsPeers.hints.tooltip}"
+                              id="it5" rows="4"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.PGeneralCommentsPeers.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

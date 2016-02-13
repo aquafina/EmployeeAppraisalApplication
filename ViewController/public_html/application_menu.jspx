@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1" topHeight="32%" bottomHeight="33%">
+          <f:facet name="bottom">
+            <af:panelGroupLayout id="pgl1"/>
+          </f:facet>
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl3" valign="middle" halign="center"
+                                 layout="vertical"
+                                 visible="#{sessionScope.user_id != null}">
+              <af:panelGroupLayout id="pgl4" layout="vertical" halign="left"
+                                   valign="top">
+                <af:spacer width="20" height="10" id="s1"/>
+                <af:goLink text="Line Manager And Self  Evaluation" id="gl1"
+                           inlineStyle="font-weight:bold; color:black;"
+                           visible="true" destination="emp_apraise_foem.jspx"/>
+                <af:goLink text="Subordinate Appraisal " id="gl2"
+                           inlineStyle="font-weight:bold; color:black;"
+                           visible="#{bindings.Count1.inputValue  ne '0'}"
+                           destination="sub_ord_apraise_form_v2.jspx"/>
+                <af:spacer width="20" height="10" id="s2"/>
+                <af:goLink text="Line Manager's Appraisal Review" id="gl5"
+                           inlineStyle="font-weight:bold; color:black;"
+                           visible="#{sessionScope.user_parent == null or sessionScope.user_parent == '84'}"
+                           destination="view_forms_v2.jspx"/>
+                <af:spacer width="20" height="10" id="s2dsf"/>
+                <af:goLink text="Peer evaluation" id="gsdfl5"
+                           inlineStyle="font-weight:bold; color:black;"
+                           destination="peer_form.jspx"/>
+              </af:panelGroupLayout>
+              <af:panelFormLayout id="pfl1" visible="false">
+                <af:inputText value="#{bindings.Count1.inputValue}"
+                              label="#{bindings.Count1.hints.label}"
+                              required="#{bindings.Count1.hints.mandatory}"
+                              columns="#{bindings.Count1.hints.displayWidth}"
+                              maximumLength="#{bindings.Count1.hints.precision}"
+                              shortDesc="#{bindings.Count1.hints.tooltip}"
+                              id="it1">
+                  <f:validator binding="#{bindings.Count1.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Count1.format}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="start"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+              <af:outputText value="User: #{sessionScope.user_name}"
+                             id="ot1dsfs" inlineStyle="font-weight:bold;"
+                             rendered="#{sessionScope.user_id != null}"/>
+              <af:commandLink text="Logout" id="cl1"
+                              action="#{Navigation.logout}"
+                              visible="#{sessionScope.user_id != null}"
+                              inlineStyle="color:red;"/>
+              <af:goLink text="Login" id="gl3" destination="login.jspx"
+                         visible="#{sessionScope.user_id == null}"
+                         inlineStyle="color:red;"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:Navigation-->
+</jsp:root>

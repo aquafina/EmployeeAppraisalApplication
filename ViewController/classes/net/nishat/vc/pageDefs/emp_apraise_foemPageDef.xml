@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="emp_apraise_foemPageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XxEmpApForm1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_XxEmpApForm1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="VO_XxEmpApFormCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VO_XxEmpApForm1Iterator"
+                  id="VOXxEmpApFormCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <button IterBinding="VO_XxEmpApForm1Iterator" id="posted_boolean"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="posted_boolean"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="YES"/>
+        <Item Value="NO"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpApFormId">
+      <AttrNames>
+        <Item Value="EmpApFormId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="DeptName">
+      <AttrNames>
+        <Item Value="DeptName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpNo">
+      <AttrNames>
+        <Item Value="EmpNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Qualification">
+      <AttrNames>
+        <Item Value="Qualification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Designation">
+      <AttrNames>
+        <Item Value="Designation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Doj">
+      <AttrNames>
+        <Item Value="Doj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="LastPromotionOn">
+      <AttrNames>
+        <Item Value="LastPromotionOn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommercialJudgment">
+      <AttrNames>
+        <Item Value="CommercialJudgment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="ProductTechnicalKnowledge">
+      <AttrNames>
+        <Item Value="ProductTechnicalKnowledge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="TimeManagement">
+      <AttrNames>
+        <Item Value="TimeManagement"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommunicationSkills">
+      <AttrNames>
+        <Item Value="CommunicationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="DelegationSkills">
+      <AttrNames>
+        <Item Value="DelegationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="MeetingDeadlines">
+      <AttrNames>
+        <Item Value="MeetingDeadlines"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommitmentToWork">
+      <AttrNames>
+        <Item Value="CommitmentToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Creativity">
+      <AttrNames>
+        <Item Value="Creativity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="ProblemSolving">
+      <AttrNames>
+        <Item Value="ProblemSolving"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="TakingInitiative">
+      <AttrNames>
+        <Item Value="TakingInitiative"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="DecisionMaking">
+      <AttrNames>
+        <Item Value="DecisionMaking"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="TeamWork">
+      <AttrNames>
+        <Item Value="TeamWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="DevelopingOthers">
+      <AttrNames>
+        <Item Value="DevelopingOthers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Leadership">
+      <AttrNames>
+        <Item Value="Leadership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Integrity">
+      <AttrNames>
+        <Item Value="Integrity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="StabilityUnderPressure">
+      <AttrNames>
+        <Item Value="StabilityUnderPressure"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="AttitudeTowardsAuthority">
+      <AttrNames>
+        <Item Value="AttitudeTowardsAuthority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Loyalty">
+      <AttrNames>
+        <Item Value="Loyalty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="AbilityToLearn">
+      <AttrNames>
+        <Item Value="AbilityToLearn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="AcceptingChange">
+      <AttrNames>
+        <Item Value="AcceptingChange"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="FilledById">
+      <AttrNames>
+        <Item Value="FilledById"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="FilledByEmail">
+      <AttrNames>
+        <Item Value="FilledByEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="posted_boolean1">
+      <AttrNames>
+        <Item Value="posted_boolean"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="CommStyleOhr">
+      <AttrNames>
+        <Item Value="CommStyleOhr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="TakeThingPersonally">
+      <AttrNames>
+        <Item Value="TakeThingPersonally"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="RemainPositive">
+      <AttrNames>
+        <Item Value="RemainPositive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="CoachesStuff">
+      <AttrNames>
+        <Item Value="CoachesStuff"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="MotivatesForms">
+      <AttrNames>
+        <Item Value="MotivatesForms"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="DelegatesEffectivaly">
+      <AttrNames>
+        <Item Value="DelegatesEffectivaly"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="RepectfulPoliteInConvo">
+      <AttrNames>
+        <Item Value="RepectfulPoliteInConvo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Responsible">
+      <AttrNames>
+        <Item Value="Responsible"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Cooperates">
+      <AttrNames>
+        <Item Value="Cooperates"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="SharesInfo">
+      <AttrNames>
+        <Item Value="SharesInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EasyToWork">
+      <AttrNames>
+        <Item Value="EasyToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="GeneralComments">
+      <AttrNames>
+        <Item Value="GeneralComments"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refreshEmpFormData"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshEmpFormData"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.refreshEmpFormData_AppModuleDataControl_dataProvider_refreshEmpFormData_result"/>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="WorkAccuracy">
+      <AttrNames>
+        <Item Value="WorkAccuracy"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="IsSecure">
+      <AttrNames>
+        <Item Value="IsSecure"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="LineManagerName">
+      <AttrNames>
+        <Item Value="LineManagerName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute1" id="Attribute1" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute2" id="Attribute2" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute3" id="Attribute3" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute4" id="Attribute4" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute5" id="Attribute5" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute6" id="Attribute6" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute10" id="Attribute10" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute11" id="Attribute11" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute12" id="Attribute12" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute7" id="Attribute7" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute8" id="Attribute8" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute9" id="Attribute9" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute13" id="Attribute13" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute14" id="Attribute14" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute15" id="Attribute15" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute16" id="Attribute16" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute17" id="Attribute17" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute18" id="Attribute18" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute19" id="Attribute19" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute20" id="Attribute20" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute21" id="Attribute21" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute22" id="Attribute22" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute23" id="Attribute23" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute24" id="Attribute24" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxEmpApForm1Iterator" StaticList="false"
+          Uses="LOV_Attribute25" id="Attribute25" DTSupportsMRU="false"/>
+  </bindings>
+</pageDefinition>

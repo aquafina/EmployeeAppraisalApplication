@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="net.nishat.model.AM.AppModule">
+      <AppModuleConfig name="14F82838626" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/Connection1DS" ApplicationName="net.nishat.model.AM.AppModule" jbo.project="net.nishat.model.Model" BC4JConfigName="AppModuleLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="Connection1">
+         <AM-Pooling jbo.ampool.maxinactiveage="60000" jbo.ampool.monitorsleepinterval="30000"/>
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="net.nishat.model.AM.AppModule"/>
+         <Tester FullProxyInterfaceName="net.nishat.model.AM.common.AppModule"/>
+         <Custom LastUsedConfiguration="AppModuleLocal" JDBCDataSource="java:comp/env/jdbc/Connection1DS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

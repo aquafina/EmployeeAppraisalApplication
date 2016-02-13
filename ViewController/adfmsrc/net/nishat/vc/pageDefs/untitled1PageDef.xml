@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="untitled1PageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XxEmpApForm1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="VO_XxEmpApForm1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="VO_SearchEmployee" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_SearchEmployeeIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpApFormId">
+      <AttrNames>
+        <Item Value="EmpApFormId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="DeptName">
+      <AttrNames>
+        <Item Value="DeptName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="LineManager">
+      <AttrNames>
+        <Item Value="LineManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpNo">
+      <AttrNames>
+        <Item Value="EmpNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Qualification">
+      <AttrNames>
+        <Item Value="Qualification"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Designation">
+      <AttrNames>
+        <Item Value="Designation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Doj">
+      <AttrNames>
+        <Item Value="Doj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="LastPromotionOn">
+      <AttrNames>
+        <Item Value="LastPromotionOn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommercialJudgment">
+      <AttrNames>
+        <Item Value="CommercialJudgment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="ProductTechnicalKnowledge">
+      <AttrNames>
+        <Item Value="ProductTechnicalKnowledge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="TimeManagement">
+      <AttrNames>
+        <Item Value="TimeManagement"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommunicationSkills">
+      <AttrNames>
+        <Item Value="CommunicationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="DelegationSkills">
+      <AttrNames>
+        <Item Value="DelegationSkills"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="MeetingDeadlines">
+      <AttrNames>
+        <Item Value="MeetingDeadlines"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="CommitmentToWork">
+      <AttrNames>
+        <Item Value="CommitmentToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Creativity">
+      <AttrNames>
+        <Item Value="Creativity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="ProblemSolving">
+      <AttrNames>
+        <Item Value="ProblemSolving"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="TakingInitiative">
+      <AttrNames>
+        <Item Value="TakingInitiative"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="DecisionMaking">
+      <AttrNames>
+        <Item Value="DecisionMaking"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="TeamWork">
+      <AttrNames>
+        <Item Value="TeamWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="DevelopingOthers">
+      <AttrNames>
+        <Item Value="DevelopingOthers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Leadership">
+      <AttrNames>
+        <Item Value="Leadership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Integrity">
+      <AttrNames>
+        <Item Value="Integrity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="StabilityUnderPressure">
+      <AttrNames>
+        <Item Value="StabilityUnderPressure"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator"
+                     id="AttitudeTowardsAuthority">
+      <AttrNames>
+        <Item Value="AttitudeTowardsAuthority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Loyalty">
+      <AttrNames>
+        <Item Value="Loyalty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="AbilityToLearn">
+      <AttrNames>
+        <Item Value="AbilityToLearn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="AcceptingChange">
+      <AttrNames>
+        <Item Value="AcceptingChange"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="FilledById">
+      <AttrNames>
+        <Item Value="FilledById"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="FilledByName">
+      <AttrNames>
+        <Item Value="FilledByName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="FilledByEmail">
+      <AttrNames>
+        <Item Value="FilledByEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxEmpApForm1Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VO_XxEmpApForm1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="VO_SearchEmployeeIterator" id="VO_SearchEmployee">
+      <nodeDefinition DefName="net.nishat.model.Search.VO_SearchEmployeeUnderLineManager"
+                      Name="VO_SearchEmployee0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FullNameChild"/>
+          <Item Value="Department"/>
+          <Item Value="Designation"/>
+          <Item Value="DateOfJoining"/>
+          <Item Value="EmployeeNumber"/>
+          <Item Value="SupervisorId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

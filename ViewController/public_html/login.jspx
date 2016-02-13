@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view >
+    <af:document id="d1" >
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1" topHeight="33%" bottomHeight="33%">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+              <af:panelGroupLayout id="pgl1" layout="vertical" valign="bottom"
+                                   halign="center"
+                                   inlineStyle="padding-top:20px"
+                                   visible="#{sessionScope.user_id == null}">
+                <af:panelGridLayout id="pgl2"
+                                    inlineStyle="border:#9c9c9c 1px solid">
+                  <af:gridRow marginTop="5px" height="auto" id="gr3">
+                    <af:gridCell marginStart="5px" marginEnd="5px" width="auto"
+                                 id="gc3">
+                      <af:inputText label="Username:" id="it1"
+                                    binding="#{AuthHandler.usernameField}"/>
+                    </af:gridCell>
+                  </af:gridRow>
+                  <af:gridRow marginTop="5px" height="auto" id="gr1">
+                    <af:gridCell marginStart="5px" marginEnd="5px" width="auto"
+                                 id="gc2">
+                      <af:inputText label="Password:" id="inputText1"
+                                    binding="#{AuthHandler.passwordField}"
+                                    secret="true"/>
+                    </af:gridCell>
+                  </af:gridRow>
+                  <af:gridRow marginTop="5px" marginBottom="5px" height="auto"
+                              id="gr2">
+                    <af:gridCell marginStart="5px" marginEnd="5px" width="auto"
+                                 id="gc1">
+                      <af:commandButton text="Login" id="cb1"
+                                        action="#{AuthHandler.authenticateUser}"/>
+                    </af:gridCell>
+                  </af:gridRow>
+                </af:panelGridLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="panelGroupLayout1" layout="vertical"
+                                   valign="bottom" halign="center"
+                                   visible="#{sessionScope.user_id != null}">
+                <af:commandButton text="Take me to the form" id="cb2"
+                                  action="#{AuthHandler.takeUserToApplication}"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl4"/>
+          </f:facet>
+          <f:facet name="bottom">
+            <af:panelGroupLayout id="pgl5"/>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:AuthHandler-->
+</jsp:root>
