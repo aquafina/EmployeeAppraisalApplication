@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="linemanager_formPageDef"
+                Package="net.nishat.vc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_XxLmApFormView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="VO_XxLmApFormView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VO_XxLmApFormView1Iterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxLmApFormView1Iterator" id="LmApFormId">
+      <AttrNames>
+        <Item Value="LmApFormId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute1" id="Attribute1" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute2" id="Attribute2" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute3" id="Attribute3" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute4" id="Attribute4" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute5" id="Attribute5" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute6" id="Attribute6" DTSupportsMRU="false"/>
+    <action IterBinding="VO_XxLmApFormView1Iterator" id="Create"
+            InstanceName="AppModuleDataControl.VO_XxLmApFormView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+            Action="createRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="VO_XxLmApFormView1Iterator" StaticList="false"
+          Uses="LOV_Attribute7" id="Attribute7" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="VO_XxLmApFormView1Iterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_XxLmApFormView1Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

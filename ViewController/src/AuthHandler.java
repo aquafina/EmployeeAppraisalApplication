@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.nishat.vc.AppConnection;
+
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 
 public class AuthHandler {
@@ -46,11 +48,12 @@ public class AuthHandler {
 
     protected void auth(String username, String password) throws Exception {
         //LOADING THE DRIVERS TO CONNECT TO ORACLE DATABASE
-        Class.forName("oracle.jdbc.driver.OracleDriver");
         //CREATING THE CONNECTION
-        connection =
-                DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.31:1522:prod",
-                                            "apps", "mskiz145");
+        connection = AppConnection.getConnection();
+        if (connection == null) {
+            return;
+        }
+               
         //IF CONNECTED SUCCESSFULLY
         if (connection != null) {
             String selectSQL =

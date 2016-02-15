@@ -19,7 +19,7 @@
               <af:panelGroupLayout id="pgl4" layout="vertical" halign="left"
                                    valign="top">
                 <af:spacer width="20" height="10" id="s1"/>
-                <af:goLink text="Line Manager And Self  Evaluation" id="gl1"
+                <af:goLink text="Self  Evaluation" id="gl1"
                            inlineStyle="font-weight:bold; color:black;"
                            visible="true" destination="emp_apraise_foem.jspx"/>
                 <af:goLink text="Subordinate Appraisal " id="gl2"
@@ -35,6 +35,10 @@
                 <af:goLink text="Peer evaluation" id="gsdfl5"
                            inlineStyle="font-weight:bold; color:black;"
                            destination="peer_form.jspx"/>
+                <af:spacer width="20" height="10" id="spacer1"/>
+                <af:goLink text="Line Manager Evaluation" id="goLink1"
+                           inlineStyle="font-weight:bold; color:black;"
+                           destination="linemanager_form.jspx"/>
               </af:panelGroupLayout>
               <af:panelFormLayout id="pfl1" visible="false">
                 <af:inputText value="#{bindings.Count1.inputValue}"

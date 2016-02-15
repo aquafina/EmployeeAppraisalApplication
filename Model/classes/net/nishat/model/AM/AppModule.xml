@@ -50,6 +50,26 @@
   <ViewUsage
     Name="VO_ViewForms_v2_1"
     ViewObjectName="net.nishat.model.VO.VO_ViewForms_v2"/>
+  <ViewUsage
+    Name="VO_XxLmApFormView1"
+    ViewObjectName="net.nishat.model.VO.VO_XxLmApFormView"/>
+  <ClientInterface>
+    <Method
+      Name="refreshEmpFormData">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="refreshSubordFormData">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="refreshPeerFormData">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ClientInterface>
     <Method
       Name="refreshEmpFormData">

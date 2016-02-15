@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
+import net.nishat.vc.AppConnection;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.event.DialogEvent;
@@ -25,10 +27,7 @@ public class SubOrdFormListener {
         // Add event code here...
         if (dialogEvent.getOutcome() == DialogEvent.Outcome.yes) {
             System.out.println("in the dialog method");
-            BindingContainer bindings = getBindings();
-            OperationBinding operationBinding1 =
-                bindings.getOperationBinding("Commit");
-            operationBinding1.execute();
+            save();
             try {
                 
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -41,9 +40,10 @@ public class SubOrdFormListener {
                 
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 //CREATING THE CONNECTION
-                connection =
-                        DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.31:1522:prod",
-                                                    "apps", "mskiz145");
+                connection = AppConnection.getConnection();
+                if (connection == null) {
+                    return;
+                }
                 PreparedStatement preparedStatement =
                     connection.prepareStatement("update xx_sub_ord_ap_form_v2 set posted = ? , SUBMITION_DATE = ? where form_id = ?");
                 preparedStatement.setString(1, "YES");
@@ -51,6 +51,8 @@ public class SubOrdFormListener {
                 preparedStatement.setInt(3,
                                          Integer.parseInt(formID.getValue().toString()));
                 int id = preparedStatement.executeUpdate();
+                
+                BindingContainer bindings = getBindings();
                 OperationBinding operationBinding =
                     bindings.getOperationBinding("refreshSubordFormData");
                 Object result = operationBinding.execute();
@@ -81,5 +83,19 @@ public class SubOrdFormListener {
 
     public RichInputText getFormID() {
         return formID;
+    }
+
+    public String cl5_action() {
+       save();
+        return null;
+    }
+    private String save(){
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        Object result = operationBinding.execute();
+        if (!operationBinding.getErrors().isEmpty()) {
+            return null;
+        }
+        return null;
     }
 }

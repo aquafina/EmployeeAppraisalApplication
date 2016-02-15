@@ -199,6 +199,8 @@
                 <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5"/>
                 <af:selectItem label="5 - Exceptional" value="5"
                                id="si1"/>
+                <af:selectItem label="6 - Not Applicable" value="6"
+                               id="si1445"/>
               </af:selectOneChoice>
               <af:selectOneChoice label="Takes Responsibility when things go wrong" id="soc1q"
                                   disabled="#{bindings.Posted.inputValue == 'YES'}"
@@ -211,6 +213,8 @@
                 <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5q"/>
                 <af:selectItem label="5 - Exceptional" value="5"
                                id="si1q"/>
+                               <af:selectItem label="6 - Not Applicable" value="6"
+                               id="si1444"/>
               </af:selectOneChoice>
               <af:selectOneChoice label="Respectful and polite in conversation"
                                   id="soc1w"
@@ -224,6 +228,8 @@
                 <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5w"/>
                 <af:selectItem label="5 - Exceptional" value="5"
                                id="si1w"/>
+                               <af:selectItem label="6 - Not Applicable" value="6"
+                               id="si1443"/>
               </af:selectOneChoice>
               <af:selectOneChoice label="Easy to work with" id="soc1e"
                                   disabled="#{bindings.Posted.inputValue == 'YES'}"
@@ -236,6 +242,8 @@
                 <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5e"/>
                 <af:selectItem label="5 - Exceptional" value="5"
                                id="si1e"/>
+                               <af:selectItem label="6 - Not Applicable" value="6"
+                               id="si1442"/>
               </af:selectOneChoice>
               <af:selectOneChoice label="Cooperates" id="soc1r"
                                   disabled="#{bindings.Posted.inputValue == 'YES'}"
@@ -248,6 +256,8 @@
                 <af:selectItem label="4 - Exceeds Expectation" value="4" id="si5r"/>
                 <af:selectItem label="5 - Exceptional" value="5"
                                id="si1r"/>
+                               <af:selectItem label="6 - Not Applicable" value="6"
+                               id="si1441"/>
               </af:selectOneChoice>
             </af:panelFormLayout>
           </af:panelBox>

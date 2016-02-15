@@ -136,5 +136,11 @@
                   IsViewObjectMethod="false"/>
     <action IterBinding="VO_XXSubOrdFormV2_1Iterator" id="Execute"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="VO_XXSubOrdFormV2_1Iterator"
+                     id="GeneralComments">
+      <AttrNames>
+        <Item Value="GeneralComments"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -470,6 +470,18 @@
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="GeneralComments"
+    Precision="1000"
+    ColumnName="GENERAL_COMMENTS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_SUB_ORD_AP_FORM_V2">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="EoXxsubordformv2PrimaryKey"
     PrimaryKey="true">

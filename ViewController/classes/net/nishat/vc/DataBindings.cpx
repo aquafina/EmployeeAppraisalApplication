@@ -19,6 +19,8 @@
           usageId="net_nishat_vc_sub_ord_apraise_form_v2PageDef"/>
     <page path="/view_forms_v2.jspx"
           usageId="net_nishat_vc_view_forms_v2PageDef"/>
+    <page path="/linemanager_form.jspx"
+          usageId="net_nishat_vc_linemanager_formPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="net_nishat_vc_emp_apraise_formPageDef"
@@ -41,6 +43,8 @@
           path="net.nishat.vc.pageDefs.sub_ord_apraise_form_v2PageDef"/>
     <page id="net_nishat_vc_view_forms_v2PageDef"
           path="net.nishat.vc.pageDefs.view_forms_v2PageDef"/>
+    <page id="net_nishat_vc_linemanager_formPageDef"
+          path="net.nishat.vc.pageDefs.linemanager_formPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="net.nishat.model.AM"

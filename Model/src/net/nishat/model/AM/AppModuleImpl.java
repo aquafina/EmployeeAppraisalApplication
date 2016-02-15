@@ -6,6 +6,7 @@ import net.nishat.model.Search.VO_SearchEmployeeAllUnderHODImpl;
 import net.nishat.model.Search.VO_SearchEmployeeImpl;
 import net.nishat.model.Search.VO_SearchPeersImpl;
 import net.nishat.model.VO.VO_ViewFormsImpl;
+import net.nishat.model.VO.VO_ViewForms_v2Impl;
 import net.nishat.model.VO.VO_XXSubOrdFormImpl;
 import net.nishat.model.VO.VO_XXSubOrdFormV2Impl;
 import net.nishat.model.VO.VO_XxEmpApFormImpl;
@@ -98,6 +99,11 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
        VO_XxPeerApFormImpl vo = (VO_XxPeerApFormImpl) getVO_XxPeerApForm2();
        vo.executeQuery();
     }
+    
+    public void refreshLMFormData(){
+       ViewObjectImpl vo = getVO_XxLmApFormView1();
+       vo.executeQuery();
+    }
 
     /**
      * Container's getter for VO_XxPeerApForm2.
@@ -145,5 +151,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getVO_ViewForms_v2_1() {
         return (ViewObjectImpl)findViewObject("VO_ViewForms_v2_1");
+    }
+
+    /**
+     * Container's getter for VO_XxLmApFormView1.
+     * @return VO_XxLmApFormView1
+     */
+    public ViewObjectImpl getVO_XxLmApFormView1() {
+        return (ViewObjectImpl)findViewObject("VO_XxLmApFormView1");
     }
 }

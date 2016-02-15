@@ -47,7 +47,7 @@
             <af:spacer width="1" height="10" id="spacerD1"
                        inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
             <af:commandLink
-                            text="Commit"
+                            text="Submit"
                             disabled="false" id="cl5"
                             action="#{EmpAprsieFormListener.whatever}">
             </af:commandLink>
@@ -222,11 +222,11 @@
                   <f:selectItems value="#{bindings.Attribute1.items}" id="si7"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute2.inputValue}"
-                                    label="Ability to use technology/computer programs to improve work"
+                                    label="Ability to use technology/computer programs to improve work#{bindings.Posted.inputValue == 'YES'}"
                                     required="#{bindings.Attribute2.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute2.hints.tooltip}"
-                                    id="soc12" disabled="#{bindings.Posted.inputValue == 'YES'}
-">
+                                    id="soc12"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute2.items}" id="si6"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute3.inputValue}"
@@ -738,7 +738,7 @@
             </af:dialog>
           </af:popup>
           <af:panelBox text="Line Manager Evaluation" id="pb3"
-                       rendered="#{sessionScope.user_id != null}"
+                       rendered="false"
                        background="light">
             <f:facet name="toolbar"/>
             <af:panelGroupLayout id="pgl4" layout="horizontal">
@@ -917,7 +917,8 @@
                               maximumLength="#{bindings.GeneralComments.hints.precision}"
                               shortDesc="#{bindings.GeneralComments.hints.tooltip}"
                                disabled="#{bindings.Posted.inputValue == 'YES'}"
-                              id="it3" rows="4" autoSubmit="true">
+                              id="it3" rows="4" autoSubmit="true"
+                              visible="false">
                   <f:validator binding="#{bindings.GeneralComments.validator}"/>
                 </af:inputText>
               </af:panelFormLayout>

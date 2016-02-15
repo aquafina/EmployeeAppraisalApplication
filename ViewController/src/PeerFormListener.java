@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
+import net.nishat.vc.AppConnection;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.event.DialogEvent;
@@ -40,9 +42,10 @@ public class PeerFormListener {
                 
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 //CREATING THE CONNECTION
-                connection =
-                        DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.31:1522:prod",
-                                                    "apps", "mskiz145");
+                connection = AppConnection.getConnection();
+                if (connection == null) {
+                    return;
+                }
                 PreparedStatement preparedStatement = 
                     connection.prepareStatement("update xx_peer_ap_form set posted = ? , SUBMITION_DATE = ? where PEER_FORM_ID = ?");
                 preparedStatement.setString(1, "YES");

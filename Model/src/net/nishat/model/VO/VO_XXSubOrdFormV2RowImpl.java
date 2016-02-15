@@ -416,6 +416,16 @@ public class VO_XXSubOrdFormV2RowImpl extends ViewRowImpl {
             }
         }
         ,
+        GeneralComments {
+            public Object get(VO_XXSubOrdFormV2RowImpl obj) {
+                return obj.getGeneralComments();
+            }
+
+            public void put(VO_XXSubOrdFormV2RowImpl obj, Object value) {
+                obj.setGeneralComments((String)value);
+            }
+        }
+        ,
         VO_SearchEmployeeUnderLineManager1 {
             public Object get(VO_XXSubOrdFormV2RowImpl obj) {
                 return obj.getVO_SearchEmployeeUnderLineManager1();
@@ -503,6 +513,7 @@ public class VO_XXSubOrdFormV2RowImpl extends ViewRowImpl {
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int SUBMITIONDATE = AttributesEnum.SubmitionDate.index();
     public static final int HODREMARKS = AttributesEnum.HodRemarks.index();
+    public static final int GENERALCOMMENTS = AttributesEnum.GeneralComments.index();
     public static final int VO_SEARCHEMPLOYEEUNDERLINEMANAGER1 = AttributesEnum.VO_SearchEmployeeUnderLineManager1.index();
     public static final int VO_LOVGRADINGSCALEFORSUBORDINATE1 = AttributesEnum.VO_LovGradingScaleForSubordinate1.index();
 
@@ -1126,6 +1137,22 @@ public class VO_XXSubOrdFormV2RowImpl extends ViewRowImpl {
      */
     public void setHodRemarks(String value) {
         setAttributeInternal(HODREMARKS, value);
+    }
+
+    /**
+     * Gets the attribute value for GENERAL_COMMENTS using the alias name GeneralComments.
+     * @return the GENERAL_COMMENTS
+     */
+    public String getGeneralComments() {
+        return (String) getAttributeInternal(GENERALCOMMENTS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for GENERAL_COMMENTS using the alias name GeneralComments.
+     * @param value value to set the GENERAL_COMMENTS
+     */
+    public void setGeneralComments(String value) {
+        setAttributeInternal(GENERALCOMMENTS, value);
     }
 
     /**

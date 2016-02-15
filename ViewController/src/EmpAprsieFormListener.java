@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import javax.servlet.http.HttpSession;
 
+import net.nishat.vc.AppConnection;
+
 import oracle.adf.model.BindingContext;
 
 import oracle.adf.model.binding.DCBindingContainer;
@@ -163,11 +165,13 @@ public class EmpAprsieFormListener {
                 token[0] + "-" + token[1] + "-" + token[2];
 
 
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+           
             //CREATING THE CONNECTION
-            connection =
-                    DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.31:1522:prod",
-                                                "apps", "mskiz145");
+            connection = AppConnection.getConnection();
+            if (connection == null) {
+                return ;
+            }
+                    
             PreparedStatement preparedStatement =
                 connection.prepareStatement("update xx_emp_ap_form set posted = ? , SUBMITION_DATE = ? where EMP_AP_FORM_ID = ?");
             preparedStatement.setString(1, "YES");

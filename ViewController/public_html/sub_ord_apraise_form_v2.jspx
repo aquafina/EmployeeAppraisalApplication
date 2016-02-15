@@ -39,9 +39,9 @@
           <af:panelGroupLayout id="pgl5" layout="horizontal"
                                inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
                                rendered="#{sessionScope.user_id != null}">
-            <af:commandLink actionListener="#{bindings.Commit.execute}"
+            <af:commandLink
                             text="Save" disabled="false"
-                            id="cl5"/>
+                            id="cl5" action="#{SubOrdFormListener.cl5_action}"/>
             <af:spacer width="1" height="10" id="spacerD1"
                        inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
             <af:commandLink text="Submit" id="aacl4"
@@ -109,7 +109,8 @@
                                       required="#{bindings.EmployeeName.hints.mandatory}"
                                       columns="#{bindings.EmployeeName.hints.displayWidth}"
                                       shortDesc="#{bindings.EmployeeName.hints.tooltip}"
-                                      autoSubmit="true">
+                                      autoSubmit="true"
+                                      disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmployeeName.validator}"/>
                 </af:inputListOfValues>
                 <af:inputText value="#{bindings.EmployeeDepartment.inputValue}"
@@ -118,7 +119,8 @@
                               columns="25"
                               maximumLength="#{bindings.EmployeeDepartment.hints.precision}"
                               shortDesc="#{bindings.EmployeeDepartment.hints.tooltip}"
-                              id="it5" partialTriggers="employeeNameId">
+                              id="it5" partialTriggers="employeeNameId"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmployeeDepartment.validator}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.LineManagerName.inputValue}"
@@ -127,7 +129,8 @@
                               columns="25"
                               maximumLength="#{bindings.LineManagerName.hints.precision}"
                               shortDesc="#{bindings.LineManagerName.hints.tooltip}"
-                              id="it1">
+                              id="it1"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.LineManagerName.validator}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.EmployeeNo.inputValue}"
@@ -136,7 +139,8 @@
                               columns="25"
                               maximumLength="#{bindings.EmployeeNo.hints.precision}"
                               shortDesc="#{bindings.EmployeeNo.hints.tooltip}"
-                              id="it3" partialTriggers="employeeNameId">
+                              id="it3" partialTriggers="employeeNameId"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmployeeNo.validator}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.EmpQualification.inputValue}"
@@ -145,7 +149,8 @@
                               columns="25"
                               maximumLength="#{bindings.EmpQualification.hints.precision}"
                               shortDesc="#{bindings.EmpQualification.hints.tooltip}"
-                              id="it2">
+                              id="it2"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmpQualification.validator}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.EmpDoj.inputValue}"
@@ -154,7 +159,8 @@
                               columns="25"
                               maximumLength="#{bindings.EmpDoj.hints.precision}"
                               shortDesc="#{bindings.EmpDoj.hints.tooltip}"
-                              id="it6">
+                              id="it6"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmpDoj.validator}"/>
                   <af:convertDateTime pattern="#{bindings.EmpDoj.format}"/>
                 </af:inputText>
@@ -165,7 +171,8 @@
                               maximumLength="#{bindings.EmpDesignation.hints.precision}"
                               shortDesc="#{bindings.EmpDesignation.hints.tooltip}"
                               id="it7" rows="1"
-                              partialTriggers="employeeNameId">
+                              partialTriggers="employeeNameId"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.EmpDesignation.validator}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.LastPromotionDate.inputValue}"
@@ -174,7 +181,8 @@
                               columns="25"
                               maximumLength="#{bindings.LastPromotionDate.hints.precision}"
                               shortDesc="#{bindings.LastPromotionDate.hints.tooltip}"
-                              id="it8">
+                              id="it8"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:validator binding="#{bindings.LastPromotionDate.validator}"/>
                   <af:convertDateTime pattern="#{bindings.LastPromotionDate.format}"/>
                 </af:inputText>
@@ -200,21 +208,24 @@
                                     label="Good knowledge of job related areas  "
                                     required="#{bindings.Attribute1.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute1.hints.tooltip}"
-                                    id="soc1" autoSubmit="true">
+                                    id="soc1" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute1.items}" id="si1"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute2.inputValue}"
                                     label="Ability to use technology/computer programs to improve work"
                                     required="#{bindings.Attribute2.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute2.hints.tooltip}"
-                                    id="soc2" autoSubmit="true">
+                                    id="soc2" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute2.items}" id="si2"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute3.inputValue}"
                                     label="Technical skills "
                                     required="#{bindings.Attribute3.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute3.hints.tooltip}"
-                                    id="soc3" autoSubmit="true">
+                                    id="soc3" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute3.items}" id="si3"/>
                 </af:selectOneChoice>
               </af:panelFormLayout>
@@ -230,21 +241,24 @@
                                     label="Achieves set targets &amp; objectives "
                                     required="#{bindings.Attribute4.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute4.hints.tooltip}"
-                                    id="soc4" autoSubmit="true">
+                                    id="soc4" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute4.items}" id="si4"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute5.inputValue}"
                                     label="Successfully completes assigned projects "
                                     required="#{bindings.Attribute5.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute5.hints.tooltip}"
-                                    id="soc5" autoSubmit="true">
+                                    id="soc5" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute5.items}" id="si5"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute6.inputValue}"
                                     label="Meets set deadlines "
                                     required="#{bindings.Attribute6.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute6.hints.tooltip}"
-                                    id="soc6" autoSubmit="true">
+                                    id="soc6" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute6.items}" id="si6"/>
                 </af:selectOneChoice>
               </af:panelFormLayout>
@@ -261,28 +275,32 @@
                                     label="Thorough in work "
                                     required="#{bindings.Attribute7.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute7.hints.tooltip}"
-                                    id="soc7" autoSubmit="true">
+                                    id="soc7" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute7.items}" id="si7"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute8.inputValue}"
                                     label="Carries out work accurately "
                                     required="#{bindings.Attribute8.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute8.hints.tooltip}"
-                                    id="soc8" autoSubmit="true">
+                                    id="soc8" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute8.items}" id="si8"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute9.inputValue}"
                                     label="Creative and solution oriented "
                                     required="#{bindings.Attribute9.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute9.hints.tooltip}"
-                                    id="soc9" autoSubmit="true">
+                                    id="soc9" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute9.items}" id="si9"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Attribute10.inputValue}"
                                     label="Ability to analyse problems quickly and accurately "
                                     required="#{bindings.Attribute10.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute10.hints.tooltip}"
-                                    id="soc10" autoSubmit="true">
+                                    id="soc10" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute10.items}"
                                  id="si10"/>
                 </af:selectOneChoice>
@@ -290,7 +308,8 @@
                                     label="Ability to make sound judgments "
                                     required="#{bindings.Attribute11.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute11.hints.tooltip}"
-                                    id="soc11" autoSubmit="true">
+                                    id="soc11" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute11.items}"
                                  id="si11"/>
                 </af:selectOneChoice>
@@ -298,7 +317,8 @@
                                     label="Ability to react to adversity in a logical &amp; practical manner"
                                     required="#{bindings.Attribute12.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute12.hints.tooltip}"
-                                    id="soc12" autoSubmit="true">
+                                    id="soc12" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute12.items}"
                                  id="si12"/>
                 </af:selectOneChoice>
@@ -317,7 +337,8 @@
                                     label="Willingly takes tasks "
                                     required="#{bindings.Attribute13.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute13.hints.tooltip}"
-                                    id="soc13" autoSubmit="true">
+                                    id="soc13" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute13.items}"
                                  id="si13"/>
                 </af:selectOneChoice>
@@ -325,7 +346,8 @@
                                     label="Independently establishes priorities "
                                     required="#{bindings.Attribute14.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute14.hints.tooltip}"
-                                    id="soc14" autoSubmit="true">
+                                    id="soc14" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute14.items}"
                                  id="si14"/>
                 </af:selectOneChoice>
@@ -333,7 +355,8 @@
                                     label="Develops and maintains schedule "
                                     required="#{bindings.Attribute15.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute15.hints.tooltip}"
-                                    id="soc15" autoSubmit="true">
+                                    id="soc15" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute15.items}"
                                  id="si15"/>
                 </af:selectOneChoice>
@@ -352,7 +375,8 @@
                                     label="Communication skills "
                                     required="#{bindings.Attribute16.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute16.hints.tooltip}"
-                                    id="soc16" autoSubmit="true">
+                                    id="soc16" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute16.items}"
                                  id="si16"/>
                 </af:selectOneChoice>
@@ -360,7 +384,8 @@
                                     label="Team work "
                                     required="#{bindings.Attribute17.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute17.hints.tooltip}"
-                                    id="soc17" autoSubmit="true">
+                                    id="soc17" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute17.items}"
                                  id="si17"/>
                 </af:selectOneChoice>
@@ -368,7 +393,8 @@
                                     label="Dealing with colleagues "
                                     required="#{bindings.Attribute18.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute18.hints.tooltip}"
-                                    id="soc18" autoSubmit="true">
+                                    id="soc18" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute18.items}"
                                  id="si18"/>
                 </af:selectOneChoice>
@@ -376,7 +402,8 @@
                                     label="Ability to accept criticism "
                                     required="#{bindings.Attribute19.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute19.hints.tooltip}"
-                                    id="soc19" autoSubmit="true">
+                                    id="soc19" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute19.items}"
                                  id="si19"/>
                 </af:selectOneChoice>
@@ -394,7 +421,8 @@
                                     label="Attendance "
                                     required="#{bindings.Attribute20.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute20.hints.tooltip}"
-                                    id="soc20" autoSubmit="true">
+                                    id="soc20" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute20.items}"
                                  id="si20"/>
                 </af:selectOneChoice>
@@ -402,7 +430,8 @@
                                     label="Time management skills "
                                     required="#{bindings.Attribute21.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute21.hints.tooltip}"
-                                    id="soc21" autoSubmit="true">
+                                    id="soc21" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute21.items}"
                                  id="si21"/>
                 </af:selectOneChoice>
@@ -410,7 +439,8 @@
                                     label="Ability to multi task "
                                     required="#{bindings.Attribute22.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute22.hints.tooltip}"
-                                    id="soc22" autoSubmit="true">
+                                    id="soc22" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute22.items}"
                                  id="si22"/>
                 </af:selectOneChoice>
@@ -418,7 +448,8 @@
                                     label="Willingness to spend extra time when required "
                                     required="#{bindings.Attribute23.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute23.hints.tooltip}"
-                                    id="soc23" autoSubmit="true">
+                                    id="soc23" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute23.items}"
                                  id="si23"/>
                 </af:selectOneChoice>
@@ -426,7 +457,8 @@
                                     label="Willingness to learn "
                                     required="#{bindings.Attribute24.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute24.hints.tooltip}"
-                                    id="soc24" autoSubmit="true">
+                                    id="soc24" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute24.items}"
                                  id="si24"/>
                 </af:selectOneChoice>
@@ -434,10 +466,22 @@
                                     label="Attitude towards change "
                                     required="#{bindings.Attribute25.hints.mandatory}"
                                     shortDesc="#{bindings.Attribute25.hints.tooltip}"
-                                    id="soc25" autoSubmit="true">
+                                    id="soc25" autoSubmit="true"
+                                    disabled="#{bindings.Posted.inputValue == 'YES'}">
                   <f:selectItems value="#{bindings.Attribute25.items}"
                                  id="si25"/>
                 </af:selectOneChoice>
+                <af:inputText value="#{bindings.GeneralComments.inputValue}"
+                              label="#{bindings.GeneralComments.hints.label}"
+                              required="#{bindings.GeneralComments.hints.mandatory}"
+                              columns="35"
+                              maximumLength="#{bindings.GeneralComments.hints.precision}"
+                              shortDesc="#{bindings.GeneralComments.hints.tooltip}"
+                              id="it10" rows="3"
+                              disabled="#{bindings.Posted.inputValue == 'YES'}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.GeneralComments.validator}"/>
+                </af:inputText>
               </af:panelFormLayout>
             </af:panelGroupLayout>
           </af:panelBox>

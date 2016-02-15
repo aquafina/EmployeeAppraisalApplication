@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view beforePhase="#{LineManagerBean.beforePhase}">
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl6" layout="scroll" halign="center">
+          <af:goLink text="Login" id="gl2"
+                     inlineStyle="font-size:medium; color:black;"
+                     rendered="#{sessionScope.user_id == null}"
+                     destination="login.jspx"/>
+          <af:outputText value="Evaluate #{sessionScope.user_parent_name}" id="ot2"
+                         inlineStyle="font-weight:bold; font-size:medium; font-family:'Times New Roman', 'Arial Black', times, Serif;"/>
+          <af:panelGroupLayout id="pgl1" halign="right" layout="vertical"
+                               rendered="#{sessionScope.user_id != null}"
+                               inlineStyle="padding-right:15px;">
+            <af:outputText value="User: #{sessionScope.user_name}" id="ot1"
+                           inlineStyle="font-weight:bold;"/>
+            <af:commandLink text="Logout" id="cl1" action="#{Navigation.logout}"
+                            inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl5" layout="horizontal"
+                               inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
+                               rendered="#{sessionScope.user_id != null}">
+            <af:commandLink text="Save Draft" id="cl4"
+                            inlineStyle="color:black; font-weight:bold;"
+                            actionListener="#{bindings.Commit.execute}">
+              
+            </af:commandLink>
+            <af:spacer width="1" height="10" id="spacerD1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:commandLink
+                            text="Submit"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}" id="cl5"
+                            action="#{LineManagerBean.whatever}">
+            </af:commandLink>
+            <af:spacer width="1" height="10" id="spacer1"
+                       inlineStyle="background-color:#9c9c9c;margin-left:5px;margin-right:5px"/>
+            <af:goLink text="Home" id="gl1" destination="application_menu.jspx"
+                       inlineStyle="color:black;"/>
+          </af:panelGroupLayout>
+          <af:panelBox text=" " id="pb2"
+                       rendered="#{sessionScope.user_id != null}"
+                       background="light">
+            <f:facet name="toolbar">
+              <af:outputText id="ot3"/>
+            </f:facet>
+            <af:panelFormLayout id="pfl1" rows="2" maxColumns="6">
+              <af:selectOneChoice value="#{bindings.Attribute1.inputValue}"
+                                  label="Communication Style is open,honest and respectful"
+                                  required="#{bindings.Attribute1.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute1.hints.tooltip}"
+                                  id="soc1"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute1.items}" id="si1"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute2.inputValue}"
+                                  label="Can handle honest feedback without taking it personally"
+                                  required="#{bindings.Attribute2.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute2.hints.tooltip}"
+                                  id="soc5"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute2.items}" id="si4"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute3.inputValue}"
+                                  label="Remains positive even under difficult circumstances"
+                                  required="#{bindings.Attribute3.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute3.hints.tooltip}"
+                                  id="soc2"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute3.items}" id="si6"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute4.inputValue}"
+                                  label="Coaches staff effectively to improve skills necessary to progress in their career"
+                                  required="#{bindings.Attribute4.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute4.hints.tooltip}"
+                                  id="soc3"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute4.items}" id="si2"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute5.inputValue}"
+                                  label="Motivates team to perform"
+                                  required="#{bindings.Attribute5.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute5.hints.tooltip}"
+                                  id="soc6"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute5.items}" id="si3"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute6.inputValue}"
+                                  label="Delegates effectively"
+                                  required="#{bindings.Attribute6.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute6.hints.tooltip}"
+                                  id="soc4"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute6.items}" id="si5"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Attribute7.inputValue}"
+                                  label="Is secure and appreciates your success"
+                                  required="#{bindings.Attribute7.hints.mandatory}"
+                                  shortDesc="#{bindings.Attribute7.hints.tooltip}"
+                                  id="soc7"
+                                  disabled="#{bindings.Posted.inputValue == 'YES'}">
+                <f:selectItems value="#{bindings.Attribute7.items}" id="si7"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.Comments.inputValue}"
+                            label="#{bindings.Comments.hints.label}"
+                            required="#{bindings.Comments.hints.mandatory}"
+                            columns="35"
+                            maximumLength="#{bindings.Comments.hints.precision}"
+                            shortDesc="#{bindings.Comments.hints.tooltip}"
+                            id="it4" rows="3" autoSubmit="true">
+                <f:validator binding="#{bindings.Comments.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Posted.inputValue}"
+                            label="#{bindings.Posted.hints.label}"
+                            required="#{bindings.Posted.hints.mandatory}"
+                            columns="#{bindings.Posted.hints.displayWidth}"
+                            maximumLength="#{bindings.Posted.hints.precision}"
+                            shortDesc="#{bindings.Posted.hints.tooltip}"
+                            id="it1" visible="false">
+                <f:validator binding="#{bindings.Posted.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.EmpId.inputValue}"
+                            label="#{bindings.EmpId.hints.label}"
+                            required="#{bindings.EmpId.hints.mandatory}"
+                            columns="#{bindings.EmpId.hints.displayWidth}"
+                            maximumLength="#{bindings.EmpId.hints.precision}"
+                            shortDesc="#{bindings.EmpId.hints.tooltip}" id="it3"
+                            visible="false">
+                <f:validator binding="#{bindings.EmpId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LmApFormId.inputValue}"
+                            label="#{bindings.LmApFormId.hints.label}"
+                            required="#{bindings.LmApFormId.hints.mandatory}"
+                            columns="#{bindings.LmApFormId.hints.displayWidth}"
+                            maximumLength="#{bindings.LmApFormId.hints.precision}"
+                            shortDesc="#{bindings.LmApFormId.hints.tooltip}"
+                            id="it2" binding="#{LineManagerBean.formID}"
+                            visible="false">
+                <f:validator binding="#{bindings.LmApFormId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LmApFormId.format}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:popup id="p1">
+            <af:dialog id="d2"
+                       dialogListener="#{EmpAprsieFormListener.submitDialogListener}"
+                       type="yesNo">
+              <af:activeOutputText value="Do you want to submit the form?"
+                                   id="aot1"/>
+            </af:dialog>
+          </af:popup>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:EmpAprsieFormListener-->
+</jsp:root>

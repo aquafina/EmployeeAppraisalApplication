@@ -564,7 +564,8 @@
        EO_XXSubOrdFormV2.LINE_MANAGER_ID, 
        EO_XXSubOrdFormV2.POSTED, 
        EO_XXSubOrdFormV2.SUBMITION_DATE, 
-       EO_XXSubOrdFormV2.HOD_REMARKS
+       EO_XXSubOrdFormV2.HOD_REMARKS,
+EO_XXSubOrdFormV2.GENERAL_COMMENTS
 FROM XX_SUB_ORD_AP_FORM_V2 EO_XXSubOrdFormV2
 where  EO_XXSubOrdFormV2.LINE_MANAGER_ID =: emp_id]]>
   </SQLQuery>
@@ -1009,6 +1010,12 @@ where  EO_XXSubOrdFormV2.LINE_MANAGER_ID =: emp_id]]>
     EntityAttrName="HodRemarks"
     EntityUsage="EO_XXSubOrdFormV2"
     AliasName="HOD_REMARKS"/>
+  <ViewAttribute
+    Name="GeneralComments"
+    PrecisionRule="true"
+    EntityAttrName="GeneralComments"
+    EntityUsage="EO_XXSubOrdFormV2"
+    AliasName="GENERAL_COMMENTS"/>
   <ViewCriteria
     Name="VO_XXSubOrdFormV2Criteria"
     ViewObjectName="net.nishat.model.VO.VO_XXSubOrdFormV2"

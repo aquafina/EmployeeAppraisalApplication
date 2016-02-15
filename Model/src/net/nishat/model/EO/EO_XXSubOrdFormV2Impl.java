@@ -401,6 +401,16 @@ public class EO_XXSubOrdFormV2Impl extends EntityImpl {
                 obj.setSubmitionDate((Date)value);
             }
         }
+        ,
+        GeneralComments {
+            public Object get(EO_XXSubOrdFormV2Impl obj) {
+                return obj.getGeneralComments();
+            }
+
+            public void put(EO_XXSubOrdFormV2Impl obj, Object value) {
+                obj.setGeneralComments((String)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -468,6 +478,7 @@ public class EO_XXSubOrdFormV2Impl extends EntityImpl {
     public static final int LINEMANAGERID = AttributesEnum.LineManagerId.index();
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int SUBMITIONDATE = AttributesEnum.SubmitionDate.index();
+    public static final int GENERALCOMMENTS = AttributesEnum.GeneralComments.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1092,6 +1103,22 @@ public class EO_XXSubOrdFormV2Impl extends EntityImpl {
      */
     public void setSubmitionDate(Date value) {
         setAttributeInternal(SUBMITIONDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for GeneralComments, using the alias name GeneralComments.
+     * @return the GeneralComments
+     */
+    public String getGeneralComments() {
+        return (String)getAttributeInternal(GENERALCOMMENTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GeneralComments.
+     * @param value value to set the GeneralComments
+     */
+    public void setGeneralComments(String value) {
+        setAttributeInternal(GENERALCOMMENTS, value);
     }
 
     /**
