@@ -4,16 +4,16 @@
       <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
       <RefAddresses>
          <StringRefAddr addrType="sid">
-            <Contents>prod</Contents>
+            <Contents>erptest8</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="port">
-            <Contents>1522</Contents>
+            <Contents>1529</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="hostname">
-            <Contents>192.168.0.31</Contents>
+            <Contents>192.168.0.30</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
             <Contents>apps</Contents>
