@@ -31,7 +31,7 @@
   </Attribute>
   <Attribute
     Name="EmployeeDepartment"
-    Precision="30"
+    Precision="200"
     ColumnName="EMPLOYEE_DEPARTMENT"
     SQLType="VARCHAR"
     Type="java.lang.String"

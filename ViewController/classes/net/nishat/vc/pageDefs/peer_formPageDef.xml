@@ -32,19 +32,9 @@
         <Item Value="EvaluatorEmployeeNo"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PCooperates">
-      <AttrNames>
-        <Item Value="PCooperates"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PDpt">
       <AttrNames>
         <Item Value="PDpt"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PEasyToWork">
-      <AttrNames>
-        <Item Value="PEasyToWork"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PEmployeeNo">
@@ -55,22 +45,6 @@
     <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PId">
       <AttrNames>
         <Item Value="PId"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VO_XxPeerApForm2Iterator"
-                     id="PRepectfulPoliteInConvo">
-      <AttrNames>
-        <Item Value="PRepectfulPoliteInConvo"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PResponsible">
-      <AttrNames>
-        <Item Value="PResponsible"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PSharesInfo">
-      <AttrNames>
-        <Item Value="PSharesInfo"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="PeerFormId">
@@ -109,5 +83,21 @@
                   IsViewObjectMethod="false"/>
     <action IterBinding="VO_XxPeerApForm2Iterator" id="Execute1"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <list IterBinding="VO_XxPeerApForm2Iterator" StaticList="false"
+          Uses="LOV_PCooperates" id="PCooperates" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxPeerApForm2Iterator" StaticList="false"
+          Uses="LOV_PEasyToWork" id="PEasyToWork" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxPeerApForm2Iterator" StaticList="false"
+          Uses="LOV_PRepectfulPoliteInConvo" id="PRepectfulPoliteInConvo"
+          DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxPeerApForm2Iterator" StaticList="false"
+          Uses="LOV_PResponsible" id="PResponsible" DTSupportsMRU="false"/>
+    <list IterBinding="VO_XxPeerApForm2Iterator" StaticList="false"
+          Uses="LOV_PSharesInfo" id="PSharesInfo" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_XxPeerApForm2Iterator" id="SubmitionDate">
+      <AttrNames>
+        <Item Value="SubmitionDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

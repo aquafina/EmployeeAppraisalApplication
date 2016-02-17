@@ -207,6 +207,16 @@ public class VO_XxPeerApFormRowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        VO_LovGradingScaleForSubordinate1 {
+            public Object get(VO_XxPeerApFormRowImpl obj) {
+                return obj.getVO_LovGradingScaleForSubordinate1();
+            }
+
+            public void put(VO_XxPeerApFormRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -253,6 +263,7 @@ public class VO_XxPeerApFormRowImpl extends ViewRowImpl {
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int SUBMITIONDATE = AttributesEnum.SubmitionDate.index();
     public static final int VO_SEARCHPEERS1 = AttributesEnum.VO_SearchPeers1.index();
+    public static final int VO_LOVGRADINGSCALEFORSUBORDINATE1 = AttributesEnum.VO_LovGradingScaleForSubordinate1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -529,6 +540,13 @@ public class VO_XxPeerApFormRowImpl extends ViewRowImpl {
      */
     public RowSet getVO_SearchPeers1() {
         return (RowSet)getAttributeInternal(VO_SEARCHPEERS1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> VO_LovGradingScaleForSubordinate1.
+     */
+    public RowSet getVO_LovGradingScaleForSubordinate1() {
+        return (RowSet)getAttributeInternal(VO_LOVGRADINGSCALEFORSUBORDINATE1);
     }
 
     /**

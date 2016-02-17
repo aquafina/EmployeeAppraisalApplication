@@ -56,6 +56,10 @@
     Name="VO_SearchPeers1"
     ViewObjectName="net.nishat.model.Search.VO_SearchPeers"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="VO_LovGradingScaleForSubordinate1"
+    ViewObjectName="net.nishat.model.LOV.VO_LovGradingScaleForSubordinate"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_PName"
     ListVOName="VO_SearchPeers1"
@@ -83,6 +87,96 @@
     <DisplayCriteria
       Hint="showAndExecute"
       Name="VO_SearchPeersCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PCooperates"
+    ListVOName="VO_LovGradingScaleForSubordinate1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PCooperates"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PEasyToWork"
+    ListVOName="VO_LovGradingScaleForSubordinate1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PEasyToWork"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PRepectfulPoliteInConvo"
+    ListVOName="VO_LovGradingScaleForSubordinate1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PRepectfulPoliteInConvo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PResponsible"
+    ListVOName="VO_LovGradingScaleForSubordinate1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PResponsible"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PSharesInfo"
+    ListVOName="VO_LovGradingScaleForSubordinate1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PSharesInfo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Scale"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT EO_XxPeerApForm.EVALUATED_BY, 
@@ -130,7 +224,15 @@ where EO_XxPeerApForm.EVALUATED_BY = :evaluated_by]]>
     PrecisionRule="true"
     EntityAttrName="PCooperates"
     EntityUsage="EO_XxPeerApForm"
-    AliasName="P_COOPERATES"/>
+    AliasName="P_COOPERATES"
+    LOVName="LOV_PCooperates">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PDpt"
     PrecisionRule="true"
@@ -142,7 +244,15 @@ where EO_XxPeerApForm.EVALUATED_BY = :evaluated_by]]>
     PrecisionRule="true"
     EntityAttrName="PEasyToWork"
     EntityUsage="EO_XxPeerApForm"
-    AliasName="P_EASY_TO_WORK"/>
+    AliasName="P_EASY_TO_WORK"
+    LOVName="LOV_PEasyToWork">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PEmployeeNo"
     PrecisionRule="true"
@@ -176,19 +286,43 @@ where EO_XxPeerApForm.EVALUATED_BY = :evaluated_by]]>
     PrecisionRule="true"
     EntityAttrName="PRepectfulPoliteInConvo"
     EntityUsage="EO_XxPeerApForm"
-    AliasName="P_REPECTFUL_POLITE_IN_CONVO"/>
+    AliasName="P_REPECTFUL_POLITE_IN_CONVO"
+    LOVName="LOV_PRepectfulPoliteInConvo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PResponsible"
     PrecisionRule="true"
     EntityAttrName="PResponsible"
     EntityUsage="EO_XxPeerApForm"
-    AliasName="P_RESPONSIBLE"/>
+    AliasName="P_RESPONSIBLE"
+    LOVName="LOV_PResponsible">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PSharesInfo"
     PrecisionRule="true"
     EntityAttrName="PSharesInfo"
     EntityUsage="EO_XxPeerApForm"
-    AliasName="P_SHARES_INFO"/>
+    AliasName="P_SHARES_INFO"
+    LOVName="LOV_PSharesInfo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PeerFormId"
     PrecisionRule="true"
