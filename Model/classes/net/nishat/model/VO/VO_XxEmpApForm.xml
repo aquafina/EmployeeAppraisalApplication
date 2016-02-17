@@ -69,7 +69,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -87,7 +87,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -105,7 +105,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -123,7 +123,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -141,7 +141,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -159,7 +159,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -177,7 +177,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -195,7 +195,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -213,7 +213,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -231,7 +231,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -249,7 +249,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -267,7 +267,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -285,7 +285,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -303,7 +303,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -321,7 +321,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -339,7 +339,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -357,7 +357,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -375,7 +375,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -393,7 +393,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -411,7 +411,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -429,7 +429,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -447,7 +447,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -465,7 +465,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -483,7 +483,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -501,7 +501,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -519,7 +519,7 @@
       <Item Value="Scale"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
+      <Item Value="Scale"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

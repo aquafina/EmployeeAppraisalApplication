@@ -146,7 +146,7 @@ public class AuthHandler {
         System.out.println("AuthHandler.java: " +
                            userSession.getAttribute("user_name") + " - " +
                            userSession.getAttribute("user_id") + "-" +
-                           userSession.getAttribute("user_email") + "-" +
+                           userSession.getAttribute("user_email") + "- dpt: " +
                            userSession.getAttribute("user_dpt") + "-" +
                            userSession.getAttribute("user_des") + "-" +
                            userSession.getAttribute("user_doj") + "-" +

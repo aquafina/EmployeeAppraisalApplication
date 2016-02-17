@@ -58,7 +58,8 @@
           <f:facet name="start"/>
           <f:facet name="end"/>
           <f:facet name="top">
-            <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+            <af:panelGroupLayout id="pgl2" halign="right" layout="vertical"
+                                 inlineStyle="padding-right:20px">
               <af:outputText value="User: #{sessionScope.user_name}"
                              id="ot1dsfs" inlineStyle="font-weight:bold;"
                              rendered="#{sessionScope.user_id != null}"/>

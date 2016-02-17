@@ -39,7 +39,9 @@ public class VO_XxEmpApFormRowImpl extends ViewRowImpl {
         this.setFilledByEmail((String)session.getAttribute("user_email"));
         this.setEmpName((String)session.getAttribute("user_name"));
         this.setDesignation((String)session.getAttribute("user_des"));
-        this.setDeptName((String)session.getAttribute("user_dpt"));
+//        this.setDeptName((String)session.getAttribute("user_dpt"));
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+(String)session.getAttribute("user_dpt"));
+        this.setDeptName(""+(String)session.getAttribute("user_dpt"));
         this.setEmpNo((String)session.getAttribute("user_no"));
         this.setLineManagerName((String)session.getAttribute("user_parent_name"));
         

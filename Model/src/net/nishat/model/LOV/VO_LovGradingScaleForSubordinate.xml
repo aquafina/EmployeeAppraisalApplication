@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[select * from xx_ap_grading_scale]]>
+    <![CDATA[select * from xx_ap_grading_scale order by scale asc]]>
   </SQLQuery>
   <ViewAttribute
     Name="Description"

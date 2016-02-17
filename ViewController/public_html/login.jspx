@@ -14,6 +14,9 @@
                                    halign="center"
                                    inlineStyle="padding-top:20px"
                                    visible="#{sessionScope.user_id == null}">
+                <af:outputText value="Performance Appraisal (2015-2016) Feb 2016" id="ot1"
+                               inlineStyle="color:black; font-size:large;"/>
+                <af:spacer width="10" height="10" id="s1"/>
                 <af:panelGridLayout id="pgl2"
                                     inlineStyle="border:#9c9c9c 1px solid">
                   <af:gridRow marginTop="5px" height="auto" id="gr3">
@@ -53,7 +56,13 @@
             <af:panelGroupLayout id="pgl4"/>
           </f:facet>
           <f:facet name="bottom">
-            <af:panelGroupLayout id="pgl5"/>
+            <af:panelGroupLayout id="pgl5" layout="vertical" halign="left"
+                                 inlineStyle="padding-left:15px">
+              <af:outputText value="Instructions :" id="ot2"
+                             inlineStyle="text-decoration:underline; font-weight:bold;"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:outputText value="Last day of submission of performance appraisal forms: Date" id="ot3"/>
+            </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
       </af:form>
