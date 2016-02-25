@@ -66,81 +66,98 @@
                       queryOperationListener="#{bindings.VOViewFormsv2CriteriaQuery.processQueryOperation}"
                       displayMode="simple"/>
             <af:commandButton actionListener="#{bindings.Execute.execute}"
-                              text="Execute"
+                              text="Search"
                               disabled="#{!bindings.Execute.enabled}" id="cb1"/>
           </af:panelGroupLayout>
           <af:panelBox text="General Information" id="pb1"
                        visible="#{sessionScope.user_id != null}">
             <f:facet name="toolbar"/>
-            <af:panelGroupLayout id="pgl5" layout="vertical">
-              <af:panelFormLayout id="pfl2" maxColumns="3" rows="2">
-                <f:facet name="footer"/>
-                <af:inputText value="#{bindings.EmployeeName.inputValue}"
-                              label="Employee Name"
-                              required="#{bindings.EmployeeName.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmployeeName.hints.precision}"
-                              shortDesc="#{bindings.EmployeeName.hints.tooltip}"
-                              id="it1" disabled="true">
-                  <f:validator binding="#{bindings.EmployeeName.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.EmployeeDepartment.inputValue}"
-                              label="Employee Department"
-                              required="#{bindings.EmployeeDepartment.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmployeeDepartment.hints.precision}"
-                              shortDesc="#{bindings.EmployeeDepartment.hints.tooltip}"
-                              id="it2" disabled="true">
-                  <f:validator binding="#{bindings.EmployeeDepartment.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.EmpDesignation.inputValue}"
-                              label="Employee Designation"
-                              required="#{bindings.EmpDesignation.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmpDesignation.hints.precision}"
-                              shortDesc="#{bindings.EmpDesignation.hints.tooltip}"
-                              id="it3" disabled="true">
-                  <f:validator binding="#{bindings.EmpDesignation.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.EmployeeNo.inputValue}"
-                              label="Employee#"
-                              required="#{bindings.EmployeeNo.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmployeeNo.hints.precision}"
-                              shortDesc="#{bindings.EmployeeNo.hints.tooltip}"
-                              id="it4" disabled="true">
-                  <f:validator binding="#{bindings.EmployeeNo.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.EmpQualification.inputValue}"
-                              label="Emp Qualification"
-                              required="#{bindings.EmpQualification.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmpQualification.hints.precision}"
-                              shortDesc="#{bindings.EmpQualification.hints.tooltip}"
-                              id="it5" disabled="true">
-                  <f:validator binding="#{bindings.EmpQualification.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.LastPromotionDate.inputValue}"
-                              label="Last Promotion Date"
-                              required="#{bindings.LastPromotionDate.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.LastPromotionDate.hints.precision}"
-                              shortDesc="#{bindings.LastPromotionDate.hints.tooltip}"
-                              id="it6" disabled="true">
-                  <f:validator binding="#{bindings.LastPromotionDate.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.LastPromotionDate.format}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.EmpDoj.inputValue}"
-                              label="Date Of Joining"
-                              required="#{bindings.EmpDoj.hints.mandatory}"
-                              columns="35"
-                              maximumLength="#{bindings.EmpDoj.hints.precision}"
-                              shortDesc="#{bindings.EmpDoj.hints.tooltip}"
-                              id="it7" disabled="true">
-                  <f:validator binding="#{bindings.EmpDoj.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.EmpDoj.format}"/>
-                </af:inputText>
-              </af:panelFormLayout>
+            <af:panelGroupLayout id="pgl11" layout="horizontal">
+              <af:panelGroupLayout id="pgl5" layout="vertical">
+                <af:panelFormLayout id="pfl2" maxColumns="3" rows="2">
+                  <f:facet name="footer"/>
+                  <af:inputText value="#{bindings.EmployeeName.inputValue}"
+                                label="Employee Name"
+                                required="#{bindings.EmployeeName.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmployeeName.hints.precision}"
+                                shortDesc="#{bindings.EmployeeName.hints.tooltip}"
+                                id="it1" disabled="true">
+                    <f:validator binding="#{bindings.EmployeeName.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.EmployeeDepartment.inputValue}"
+                                label="Employee Department"
+                                required="#{bindings.EmployeeDepartment.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmployeeDepartment.hints.precision}"
+                                shortDesc="#{bindings.EmployeeDepartment.hints.tooltip}"
+                                id="it2" disabled="true">
+                    <f:validator binding="#{bindings.EmployeeDepartment.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.EmpDesignation.inputValue}"
+                                label="Employee Designation"
+                                required="#{bindings.EmpDesignation.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmpDesignation.hints.precision}"
+                                shortDesc="#{bindings.EmpDesignation.hints.tooltip}"
+                                id="it3" disabled="true">
+                    <f:validator binding="#{bindings.EmpDesignation.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.EmployeeNo.inputValue}"
+                                label="Employee#"
+                                required="#{bindings.EmployeeNo.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmployeeNo.hints.precision}"
+                                shortDesc="#{bindings.EmployeeNo.hints.tooltip}"
+                                id="it4" disabled="true">
+                    <f:validator binding="#{bindings.EmployeeNo.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.EmpQualification.inputValue}"
+                                label="Emp Qualification"
+                                required="#{bindings.EmpQualification.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmpQualification.hints.precision}"
+                                shortDesc="#{bindings.EmpQualification.hints.tooltip}"
+                                id="it5" disabled="true" rendered="false">
+                    <f:validator binding="#{bindings.EmpQualification.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.LastPromotionDate.inputValue}"
+                                label="Last Promotion Date"
+                                required="#{bindings.LastPromotionDate.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.LastPromotionDate.hints.precision}"
+                                shortDesc="#{bindings.LastPromotionDate.hints.tooltip}"
+                                id="it6" disabled="true" rendered="false">
+                    <f:validator binding="#{bindings.LastPromotionDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.LastPromotionDate.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.EmpDoj.inputValue}"
+                                label="Date Of Joining"
+                                required="#{bindings.EmpDoj.hints.mandatory}"
+                                columns="35"
+                                maximumLength="#{bindings.EmpDoj.hints.precision}"
+                                shortDesc="#{bindings.EmpDoj.hints.tooltip}"
+                                id="it7" disabled="true" rendered="false">
+                    <f:validator binding="#{bindings.EmpDoj.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.EmpDoj.format}"/>
+                  </af:inputText>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="panelGroupLayout2" layout="vertical"
+                                   halign="right">
+                <af:outputText value="Not Applicable - 0" id="ot3"
+                               inlineStyle="font-weight:bold;"/>
+                <af:outputText value="Poor - 1" id="ot4"
+                               inlineStyle="font-weight:bold;"/>
+                <af:outputText value="Needs Improvement - 2" id="ot5"
+                               inlineStyle="font-weight:bold;"/>
+                <af:outputText value="Meets Expectation - 3" id="ot6"
+                               inlineStyle="font-weight:bold;"/>
+                <af:outputText value="Exceeds Expectation - 4" id="ot7"
+                               inlineStyle="font-weight:bold;"/>
+                <af:outputText value="Exceptional - 5" id="ot8"
+                               inlineStyle="font-weight:bold;"/>
+              </af:panelGroupLayout>
             </af:panelGroupLayout>
           </af:panelBox>
           <af:panelBox text="Job Related Skills"

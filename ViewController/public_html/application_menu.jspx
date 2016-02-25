@@ -27,12 +27,12 @@
                            visible="#{bindings.Count1.inputValue  ne '0'}"
                            destination="sub_ord_apraise_form_v2.jspx"/>
                 <af:spacer width="20" height="10" id="s2"/>
-                <af:goLink text="Line Manager's Appraisal Review" id="gl5"
+                <af:goLink text="Staff Appraisal Review" id="gl5"
                            inlineStyle="font-weight:bold; color:black;"
                            visible="#{sessionScope.user_parent == null or sessionScope.user_parent == '84'}"
                            destination="view_forms_v2.jspx"/>
                 <af:spacer width="20" height="10" id="s2dsf"/>
-                <af:goLink text="Peer evaluation" id="gsdfl5"
+                <af:goLink text="Peer Evaluation" id="gsdfl5"
                            inlineStyle="font-weight:bold; color:black;"
                            destination="peer_form.jspx"/>
                 <af:spacer width="20" height="10" id="spacer1"/>

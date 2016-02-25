@@ -222,10 +222,9 @@
           <af:panelBox text="Peer evaluation" id="pb2"
                        rendered="#{sessionScope.user_id != null}">
             <f:facet name="toolbar"/>
-            <af:panelGroupLayout id="pgl3" layout="horizontal"
-                                 inlineStyle="width:100%">
-              <af:panelFormLayout id="pfl2" maxColumns="3" rows="2"
-                                  inlineStyle="width:90%;">
+            <af:panelGroupLayout id="pgl3" layout="horizontal">
+              <af:panelFormLayout id="pfl2" maxColumns="5" rows="1"
+                                  inlineStyle="margin-right:15px">
                 <af:inputText value="#{bindings.EvaluatedBy.inputValue}"
                               label="#{bindings.EvaluatedBy.hints.label}"
                               required="#{bindings.EvaluatedBy.hints.mandatory}"
@@ -363,8 +362,7 @@
                   <af:convertDateTime pattern="#{bindings.SubmitionDate.format}"/>
                 </af:inputDate>
               </af:panelFormLayout>
-              <af:panelGroupLayout id="pgl10" layout="vertical" halign="right"
-                                   inlineStyle="width:50%;">
+              <af:panelGroupLayout id="pgl10" layout="vertical" halign="right">
                 <af:outputText value="Not Applicable - 0" id="ot3"
                                inlineStyle="font-weight:bold;"/>
                 <af:outputText value="Poor - 1" id="ot4"

@@ -126,10 +126,9 @@
           <af:panelBox text="Subordinate General Information" id="pb3"
                        rendered="#{sessionScope.user_id != null}">
             <f:facet name="toolbar"/>
-            <af:panelGroupLayout id="pgl9" layout="horizontal"
-                                 inlineStyle="width:100%">
-              <af:panelGroupLayout id="pgl3" layout="vertical"
-                                   inlineStyle="width:70%" halign="right">
+            <af:panelGroupLayout id="pgl9" layout="horizontal">
+              <af:panelGroupLayout id="pgl3" layout="vertical" halign="right"
+                                   inlineStyle="margin-right:15px">
                 <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
                   <f:facet name="footer"/>
                   <af:inputText value="#{bindings.FormId.inputValue}"
@@ -231,8 +230,7 @@
                   </af:inputText>
                 </af:panelFormLayout>
               </af:panelGroupLayout>
-              <af:panelGroupLayout id="pgl10" layout="vertical" halign="right"
-                                   inlineStyle="width:50%;">
+              <af:panelGroupLayout id="pgl10" layout="vertical" halign="right">
                 <af:outputText value="Not Applicable - 0" id="ot3"
                                inlineStyle="font-weight:bold;"/>
                 <af:outputText value="Poor - 1" id="ot4"
@@ -521,13 +519,23 @@
                   <f:selectItems value="#{bindings.Attribute25.items}"
                                  id="si25"/>
                 </af:selectOneChoice>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Comments" id="panelBox5" background="light"
+                       rendered="#{sessionScope.user_id != null}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="panelGroupLayout6" layout="horizontal"
+                                 halign="left">
+              <af:panelFormLayout id="panelFormLayout1" maxColumns="3" rows="2">
+                <f:facet name="footer"/>
                 <af:inputText value="#{bindings.GeneralComments.inputValue}"
                               label="#{bindings.GeneralComments.hints.label}"
                               required="#{bindings.GeneralComments.hints.mandatory}"
                               columns="35"
                               maximumLength="#{bindings.GeneralComments.hints.precision}"
                               shortDesc="#{bindings.GeneralComments.hints.tooltip}"
-                              id="it10" rows="3"
+                              id="inputText1" rows="3"
                               disabled="#{bindings.Posted.inputValue == 'YES'}"
                               autoSubmit="true">
                   <f:validator binding="#{bindings.GeneralComments.validator}"/>
