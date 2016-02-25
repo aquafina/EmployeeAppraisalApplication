@@ -61,7 +61,7 @@
               <af:outputText value="Instructions :" id="ot2"
                              inlineStyle="text-decoration:underline; font-weight:bold;"/>
               <af:spacer width="10" height="10" id="s2"/>
-              <af:outputText value="Last day of submission of performance appraisal forms: Date" id="ot3"/>
+              <af:outputText value="Last date of submission: Date" id="ot3"/>
             </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
