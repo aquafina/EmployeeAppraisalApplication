@@ -20,24 +20,24 @@
                                    valign="top">
                 <af:spacer width="20" height="10" id="s1"/>
                 <af:goLink text="Self  Evaluation" id="gl1"
-                           inlineStyle="font-weight:bold; color:black;"
+                           inlineStyle="font-weight:bold; color:black; font-size:20.0px;"
                            visible="true" destination="emp_apraise_foem.jspx"/>
                 <af:goLink text="Subordinate Appraisal " id="gl2"
-                           inlineStyle="font-weight:bold; color:black;"
+                           inlineStyle="font-weight:bold; color:black; font-size:20.0px;"
                            visible="#{bindings.Count1.inputValue  ne '0'}"
                            destination="sub_ord_apraise_form_v2.jspx"/>
                 <af:spacer width="20" height="10" id="s2"/>
                 <af:goLink text="Line Manager's Appraisal Review" id="gl5"
-                           inlineStyle="font-weight:bold; color:black;"
+                           inlineStyle="font-weight:bold; color:black; font-size:20.0px;"
                            visible="#{sessionScope.user_parent == null or sessionScope.user_parent == '84'}"
                            destination="view_forms_v2.jspx"/>
                 <af:spacer width="20" height="10" id="s2dsf"/>
                 <af:goLink text="Peer evaluation" id="gsdfl5"
-                           inlineStyle="font-weight:bold; color:black;"
+                           inlineStyle="font-weight:bold; color:black; font-size:20.0px;"
                            destination="peer_form.jspx"/>
                 <af:spacer width="20" height="10" id="spacer1"/>
                 <af:goLink text="Line Manager Evaluation" id="goLink1"
-                           inlineStyle="font-weight:bold; color:black;"
+                           inlineStyle="font-weight:bold; color:black; font-size:20.0px;"
                            destination="linemanager_form.jspx"/>
               </af:panelGroupLayout>
               <af:panelFormLayout id="pfl1" visible="false">
