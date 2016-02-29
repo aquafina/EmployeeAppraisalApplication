@@ -50,5 +50,10 @@
         <Item Value="Comments"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="refreshLMFormData"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshLMFormData"
+                  IsViewObjectMethod="false"/>
   </bindings>
 </pageDefinition>

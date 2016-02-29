@@ -69,54 +69,8 @@
       <Return
         Type="void"/>
     </Method>
-  </ClientInterface>
-  <ClientInterface>
     <Method
-      Name="refreshEmpFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshSubordFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshPeerFormData">
-      <Return
-        Type="void"/>
-    </Method>
-  </ClientInterface>
-  <ClientInterface>
-    <Method
-      Name="refreshEmpFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshSubordFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshPeerFormData">
-      <Return
-        Type="void"/>
-    </Method>
-  </ClientInterface>
-  <ClientInterface>
-    <Method
-      Name="refreshEmpFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshSubordFormData">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="refreshPeerFormData">
+      Name="refreshLMFormData">
       <Return
         Type="void"/>
     </Method>

@@ -28,7 +28,8 @@
                                rendered="#{sessionScope.user_id != null}">
             <af:commandLink text="Save Draft" id="cl4"
                             inlineStyle="color:black; font-weight:bold;"
-                            actionListener="#{bindings.Commit.execute}">
+                            actionListener="#{bindings.Commit.execute}"
+                            disabled="#{bindings.Posted.inputValue == 'YES'}">
               
             </af:commandLink>
             <af:spacer width="1" height="10" id="spacerD1"

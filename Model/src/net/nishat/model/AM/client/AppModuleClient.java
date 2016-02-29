@@ -34,4 +34,10 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
             this.riInvokeExportedMethod(this,"refreshPeerFormData",null,null);
         return;
     }
+
+    public void refreshLMFormData() {
+        Object _ret =
+            this.riInvokeExportedMethod(this,"refreshLMFormData",null,null);
+        return;
+    }
 }

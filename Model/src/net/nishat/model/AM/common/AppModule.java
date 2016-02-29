@@ -11,4 +11,6 @@ public interface AppModule extends ApplicationModule {
     void refreshSubordFormData();
 
     void refreshPeerFormData();
+
+    void refreshLMFormData();
 }

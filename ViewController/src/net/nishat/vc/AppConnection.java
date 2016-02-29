@@ -8,7 +8,7 @@ public class AppConnection {
     public static Connection getConnection(){
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            return DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.30:1529:erptest8",
+            return DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.31:1522:prod",
                                     "apps", "mskiz145");
         } catch (Exception e) {
             e.printStackTrace();
