@@ -13,7 +13,7 @@
                      inlineStyle="color:black; font-size:medium;"
                      visible="#{sessionScope.user_id == null}"
                      destination="login.jspx"/>
-          <af:outputText value="Staff appraisal review o" id="ot2"
+          <af:outputText value="Staff appraisal review" id="ot2"
                          inlineStyle="font-weight:bold; font-size:medium; font-family:'Times New Roman', 'Arial Black', times, Serif;"/>
           <af:panelGroupLayout id="pgl7" halign="right" layout="vertical"
                                rendered="#{sessionScope.user_id != null}"
