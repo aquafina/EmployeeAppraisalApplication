@@ -41,7 +41,18 @@
     </Properties>
   </Variable>
   <SQLQuery>
-    <![CDATA[select employee_id,full_name_child,DEPARTMENT,designation,date_of_joining,employee_number,supervisor_id from XX_EMPLOYEE_AP_USERS where trim(supervisor_id) = trim(:emp_id)]]>
+    <![CDATA[select employee_id,full_name_child,DEPARTMENT,designation,date_of_joining,employee_number,supervisor_id from XX_EMPLOYEE_AP_USERS where trim(supervisor_id) = trim(:emp_id) and email not in('usama@nisust.net'
+,'muhammadasad@nishat.net'
+,'danesh@nishat.net'
+,'mehwish@nishat.net'
+,'waqasahmed@nishat.net'
+,'khairunnisa@nishat.net'
+,'salmanali@nishat.net'
+,'shahidurrahman@nishat.net'
+,'mbilal@nishat.net',
+'haseebhamid@nishat.net'
+,'rubab@nishat.net'
+)]]>
   </SQLQuery>
   <ViewAttribute
     Name="EmployeeId"

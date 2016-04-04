@@ -34,7 +34,7 @@
             <af:panelGroupLayout id="panelGroupLayout1" layout="horizontal"
                                  inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
                                  rendered="#{sessionScope.user_id != null}">
-              <af:commandLink text="New Review" id="commandLink1"
+              <af:commandLink text="Click here to fill a review" id="commandLink1"
                               inlineStyle="color:black; font-weight:bold;"
                               actionListener="#{bindings.Create.execute}"
                               rendered="false"/>
@@ -60,7 +60,7 @@
           <af:panelGroupLayout id="pgl2" layout="horizontal"
                                inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
                                rendered="#{sessionScope.user_id != null}">
-            <af:commandLink text="New Review" id="cl5"
+            <af:commandLink text="Click here for new review" id="cl5"
                             inlineStyle="color:black; font-weight:bold;"
                             actionListener="#{bindings.Create.execute}"/>
             <af:spacer width="1" height="10" id="spacer2"

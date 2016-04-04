@@ -36,7 +36,7 @@
                                  inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px"
                                  rendered="#{sessionScope.user_id != null}">
               <af:commandLink actionListener="#{bindings.Create.execute}"
-                              text="New Review"
+                              text="Click here for new review"
                               disabled="#{!bindings.Create.enabled}"
                               id="commandLink1" rendered="false"/>
               <af:spacer width="1" height="10" id="spacer3"
@@ -62,7 +62,7 @@
           <af:panelGroupLayout id="pgl8" layout="horizontal"
                                inlineStyle="margin-bottom:10px;border:#9c9c9c 1px solid;padding:4px;margin-top:5px">
             <af:commandLink actionListener="#{bindings.Create.execute}"
-                            text="New Review"
+                            text="Click here for new review"
                             disabled="#{!bindings.Create.enabled}" id="cl2"/>
             <af:inputListOfValues id="employeeNameId"
                                   popupTitle="Search and Select: #{bindings.EmployeeName.hints.label}"
